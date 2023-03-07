@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta id="_csrf" name="_csrf" th:content="" />
+		<meta id="_csrf_header" name="_csrf_header" th:content="" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="상주아카이브" />
+		<meta property="og:description" content="상주아카이브" />
+		<meta property="og:url" content="http://27.101.18.67:8099/archive/index.do" />
+		<link rel="canonical" href="http://27.101.18.67:8099/archive/index.do" />
+		<title>상주아카이브 > 정보목록 > 정보목록</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="google-site-verification" content="OA5_hUESpzJL2T4wSQAImaoFzepmUhLaPOUVdfesf80" />
+
+		<link rel="shortcut icon" href="https://www.sangju.go.kr/archive/resources/homepage/archive/images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://www.sangju.go.kr/archive/resources/homepage/archive/css/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="https://www.sangju.go.kr/archive/resources/homepage/archive/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="https://www.sangju.go.kr/archive/resources/homepage/archive/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="https://www.sangju.go.kr/archive/resources/homepage/archive/css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="https://www.sangju.go.kr/archive/resources/homepage/archive/css/component.css" />
+		<link rel="stylesheet" type="text/css" href="/archive/resources/homepage/archive/css/2023.css" />
+
+		<link rel="stylesheet" type="text/css" href="https://www.sangju.go.kr/archive/resources/homepage/archive/css/dialog.css" />
+		<script type="text/javascript" src="https://www.sangju.go.kr/archive/resources/common/js/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="https://www.sangju.go.kr/archive/resources/common/js/jquery-ui-1.12.0-datepicker.min.js"></script>
+		<script type="text/javascript" src="https://www.sangju.go.kr/archive/resources/common/js/jquery-ui-1.12.0.min.js"></script>
+
+		<script type="text/javascript" src="https://www.sangju.go.kr/archive/resources/common/js/common.js"></script>
+		<script type="text/javascript" src="https://www.sangju.go.kr/archive/resources/common/js/kakao.min.js"></script>
+
+		<script type="text/javascript" src="https://www.sangju.go.kr/archive/resources/homepage/archive/js/slick.min.js"></script>
+		<script type="text/javascript" src="https://www.sangju.go.kr/archive/resources/homepage/archive/js/main.js"></script>
+		<script type="text/javascript" src="https://www.sangju.go.kr/archive/resources/homepage/archive/js/validationCheck.js"></script>
+	</head>
+
+	<body>
+		<script type="text/javascript" src="https://www.sangju.go.kr/archive/resources/homepage/archive/js/sub.js"></script>
+
+		<script type="text/javascript">
+			$(function ($) {
+				/* 자료소개 메뉴에서 프린트 아이콘 안보이도록 */
+				let pathName = location.pathname;
+				if (pathName.includes("/archive/historicalRecords/")) {
+					$(".subTop_buttons li:nth-child(2)").css("display", "none");
+				}
+
+				$("li#menu_3").addClass("active");
+				$("li#menu_92").addClass("active");
+				var halbaeNode = $("li#menu_3").parent().parent()[0];
+
+				if (halbaeNode != null && halbaeNode.nodeName == "LI") {
+					$(halbaeNode).addClass("active");
+				}
+				if ("Y" == "Y") {
+					$("div#menuRatingDiv").load("/archive/module/menuRating/index.do?menu_idx=92");
+				}
+
+				$(".depths3").parent().siblings("a").attr("onclick", "return false");
+
+				//페이스북 공유
+				$(".subTop_snsFacebook").click(function () {
+					let url = document.location.href;
+
+					if ($(this).attr("data-sns-url") == undefined || $(this).attr("data-sns-url") == "") {
+						window.open("http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), "share_facebook", "width=410, height=540, resizable=no");
+					} else {
+						window.open(
+							"http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent($(this).attr("data-sns-url")),
+							"share_facebook",
+							"width=410, height=540, resizable=no"
+						);
+					}
+				});
+
+				//twitter 공유
+				$(".subTop_snsTwitter").click(function () {
+					let url = document.location.href;
+
+					if ($(this).attr("data-sns-url") == undefined || $(this).attr("data-sns-url") == "") {
+						window.open("https://twitter.com/intent/tweet?url=" + encodeURIComponent(url), "share_twitter", "width=410, height=540, resizable=no");
+					} else {
+						window.open(
+							"https://twitter.com/intent/tweet?url=" + encodeURIComponent($(this).attr("data-sns-url")),
+							"share_twitter",
+							"width=410, height=540, resizable=no"
+						);
+					}
+				});
+
+				$(".subTop_band").click(function () {
+					let url = document.location.href;
+
+					if ($(this).attr("data-sns-url") == undefined || $(this).attr("data-sns-url") == "") {
+						window.open("http://www.band.us/plugin/share?body=" + encodeURIComponent(url), "share_band", "width=410, height=540, resizable=no");
+					} else {
+						window.open(
+							"http://www.band.us/plugin/share?body=" + encodeURIComponent($(this).attr("data-sns-url")),
+							"share_band",
+							"width=410, height=540, resizable=no"
+						);
+					}
+				});
+			});
+		</script>
+
+		<header class="header">
+			<section class="gnb">
+				<div class="gnb_inner">
+					<article class="gnb_link gnb_outLink">
+						<a href="https://www.sangju.go.kr/main2.tc" title="상주시청(새창 열림)" target="_blank">상주시청</a>
+						<a href="https://www.sangjucouncil.go.kr/main.jsp" title="상주시의회(새창 열림)" target="_blank">상주시의회</a>
+						<a href="https://www.sangju.go.kr/tour/main.tc" title="관광상주(새창 열림)" target="_blank">관광상주</a>
+						<a href="https://www.sangju.go.kr/civil/main.tc" title="상주시 전자민원창구(새창 열림)" target="_blank">전자민원창구</a>
+						<a href="https://www.sangju.go.kr/child/main.tc" title="상주시 어린이시청(새창 열림)" target="_blank">어린이시청</a>
+						<a href="https://www.mois.go.kr/frt/sub/popup/p_taegugki_banner/screen.do" title="국가상징(새창 열림)" target="_blank">국가상징</a>
+					</article>
+					<article class="gnb_link gnb_inLink">
+						<a href="https://www.sangju.go.kr/archive/index.do">홈으로</a>
+						<a href="https://www.sangju.go.kr/archive/sitemap/index.do?menu_idx=115">사이트맵</a>
+					</article>
+				</div>
+			</section>
+			<div class="header_inner">
+				<h1 class="logo">
+					<a href="https://www.sangju.go.kr/archive/index.do">
+						<span class="blind">상주아카이브</span>
+					</a>
+				</h1>
+				<nav class="lnb_wrap">
+					<ul class="lnb">
+						<li class="List 1Depth menu1 menu_1">
+							<a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=98&manage_idx=149"><span>정보공개청구</span></a>
+						</li>
+						<li class="List 1Depth menu2 menu_3">
+							<a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=92&manage_idx=154"><span>정보목록</span></a>
+						</li>
+						<li class="List 1Depth menu3 menu_2">
+							<a href="https://www.sangju.go.kr/archive/board/categoryList.do?menu_idx=2"><span>행정정보공표목록</span></a>
+						</li>
+						<li class="List 1Depth menu4 menu_7">
+							<a href="https://www.sangju.go.kr/archive/html.do?menu_idx=90"><span>공공데이터개방</span></a>
+						</li>
+						<li class="List 1Depth menu5 menu_108">
+							<a href="https://www.sangju.go.kr/archive/historicalRecords/index.do?menu_idx=103"><span>상주아카이브</span></a>
+						</li>
+						<li class="List 1Depth menu6 menu_9">
+							<a href="https://www.sangju.go.kr/archive/infoInfringement/index.do?menu_idx=9"><span>정보보호</span></a>
+						</li>
+						<li style="display: none" class="List 1Depth menu7 menu_114">
+							<a href="https://www.sangju.go.kr/archive/html.do?menu_idx=114"><span>이용안내</span></a>
+						</li>
+					</ul>
+
+					<button type="button" class="fullmenuOpenButton">
+						<span class="blind">전체메뉴 열기</span>
+					</button>
+				</nav>
+			</div>
+			<!-- //navigation -->
+			<nav class="fullmenu">
+				<div class="fullmenuList">
+					<ul>
+						<li class="menu1 menu_1">
+							<a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=98&manage_idx=149">정보공개청구</a>
+							<ul></ul>
+							<ul>
+								<li class="menu_96"><a href="https://www.open.go.kr/infOthbc/infOthbc/infOthbc.do" target="_blank">정보공개안내</a></li>
+							</ul>
+							<ul>
+								<li class="menu_97"><a href="https://www.open.go.kr/rqestMlrd/rqestDtls/reqstDocList.do" target="_blank">정보공개 청구/조회</a></li>
+							</ul>
+							<ul>
+								<li class="menu_98"><a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=98&manage_idx=149">비공개 세부기준</a></li>
+							</ul>
+						</li>
+						<li class="menu2 menu_3">
+							<a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=92&manage_idx=154">정보목록</a>
+							<ul></ul>
+							<ul>
+								<li class="menu_92"><a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=92&manage_idx=154">정보목록</a></li>
+							</ul>
+							<ul>
+								<li class="menu_93"><a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=93&manage_idx=159">정보목록(2004∼2014)</a></li>
+							</ul>
+							<ul>
+								<li class="menu_94"><a href="https://www.open.go.kr/othicInfo/infoList/infoList.do" target="_blank">정보목록조회</a></li>
+							</ul>
+							<ul>
+								<li class="menu_95"><a href="https://www.open.go.kr/othicInfo/infoList/orginlInfoList.do" target="_blank">원문공개조회</a></li>
+							</ul>
+						</li>
+						<li class="menu3 menu_2">
+							<a href="https://www.sangju.go.kr/archive/board/categoryList.do?menu_idx=2">행정정보공표목록</a>
+							<ul></ul>
+							<ul>
+								<li class="menu_87"><a href="https://www.sangju.go.kr/archive/board/categoryList.do?menu_idx=87">사전정보공개</a></li>
+							</ul>
+							<ul>
+								<li class="menu_88"><a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=88&manage_idx=152">정책실명제</a></li>
+							</ul>
+							<ul>
+								<li class="menu_89"><a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=89&manage_idx=150">업무추진비</a></li>
+							</ul>
+						</li>
+						<li class="menu4 menu_7">
+							<a href="https://www.sangju.go.kr/archive/html.do?menu_idx=90">공공데이터개방</a>
+							<ul></ul>
+							<ul>
+								<li class="menu_90"><a href="https://www.sangju.go.kr/archive/html.do?menu_idx=90">공공데이터 이용정책</a></li>
+							</ul>
+							<ul>
+								<li class="menu_91"><a href="https://www.sangju.go.kr/archive/html.do?menu_idx=91">공공데이터 제공목록</a></li>
+							</ul>
+						</li>
+						<li class="menu5 menu_108">
+							<a href="https://www.sangju.go.kr/archive/historicalRecords/index.do?menu_idx=103">상주아카이브</a>
+							<ul></ul>
+							<ul>
+								<li class="menu_103"><a href="https://www.sangju.go.kr/archive/historicalRecords/index.do?menu_idx=103">자료소개</a></li>
+							</ul>
+							<ul>
+								<li class="menu_110"><a href="https://www.sangju.go.kr/archive/record/index.do?menu_idx=110">내 파일 기증</a></li>
+							</ul>
+							<ul>
+								<li class="menu_111"><a href="https://www.sangju.go.kr/archive/heritage/index.do?menu_idx=111">기록물(유물)기증</a></li>
+							</ul>
+						</li>
+						<li class="menu6 menu_9">
+							<a href="https://www.sangju.go.kr/archive/infoInfringement/index.do?menu_idx=9">정보보호</a>
+							<ul></ul>
+							<ul>
+								<li class="menu_117"><a href="https://privacy.kisa.or.kr/counsel/privacy/report_step01.do" target="_blank">KISA 개인정보 침해신고센터</a></li>
+							</ul>
+							<ul>
+								<li class="menu_112"><a href="https://www.sangju.go.kr/archive/infoInfringement/index.do?menu_idx=112">개인정보 침해 신고 현황</a></li>
+							</ul>
+						</li>
+						<li style="display: none" class="menu7 menu_114"><a href="https://www.sangju.go.kr/archive/html.do?menu_idx=114">이용안내</a></li>
+					</ul>
+				</div>
+			</nav>
+			<nav class="mobileFullmenu">
+				<div class="fullmenuHead">
+					<label for="mlink" class="blind">관련사이트 바로가기</label>
+					<select name="mlink" id="mlink" class="fullmenuLinks" title="관련사이트 바로가기">
+						<option value="">관련사이트</option>
+						<option value="https://www.sangju.go.kr/main2.tc">상주시청</option>
+						<option value="https://www.sangjucouncil.go.kr/main.jsp">상주시의회</option>
+						<option value="https://www.sangju.go.kr/tour/main.tc">관광상주</option>
+						<option value="https://www.sangju.go.kr/civil/main.tc">전자민원창구</option>
+						<option value="https://www.sangju.go.kr/child/main.tc">어린이시청</option>
+						<option value="https://www.mois.go.kr/frt/sub/popup/p_taegugki_banner/screen.do">국가상징</option>
+					</select>
+					<button class="fullmenuLinksButton" title="선택한 관련사이이트로 새창열기">
+						<span class="blind">선택한 관련사이이트로 새창열기</span>
+					</button>
+					<button type="button" class="fullmenuCloseButton" title="전체메뉴 닫기">
+						<span class="blind">전체메뉴 닫기</span>
+					</button>
+				</div>
+				<div class="fullmenuList">
+					<ul class="depths1__wrapper">
+						<li class="depths1">
+							<a href="#" class="depth1 depth">정보공개청구</a>
+							<ul class="depths2__wrapper">
+								<li class="depths2">
+									<a href="https://www.open.go.kr/infOthbc/infOthbc/infOthbc.do" class="depth2 blank" target="_blank" title="새창열기">정보공개안내</a>
+								</li>
+								<li class="depths2">
+									<a href="https://www.open.go.kr/rqestMlrd/rqestDtls/reqstDocList.do" class="depth2 blank" target="_blank" title="새창열기"
+										>정보공개 청구/조회</a
+									>
+								</li>
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=98&amp;manage_idx=149" class="depth2">비공개 세부기준</a>
+								</li>
+							</ul>
+						</li>
+						<li class="depths1">
+							<a href="#" class="depth1 depth">정보목록</a>
+							<ul class="depths2__wrapper">
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=117&manage_idx=154" class="depth2">정보목록</a>
+								</li>
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=93&amp;manage_idx=159" class="depth2">정보목록(2004~2014)</a>
+								</li>
+								<li class="depths2">
+									<a href="https://www.open.go.kr/othicInfo/infoList/infoList.do" class="depth2 blank" target="_blank" title="새창열기">정보목록 조회</a>
+								</li>
+								<li class="depths2">
+									<a href="https://www.open.go.kr/othicInfo/infoList/orginlInfoList.do" class="depth2 blank" target="_blank" title="새창열기">원문공개 조회</a>
+								</li>
+							</ul>
+						</li>
+						<li class="depths1">
+							<a href="#" class="depth1 depth">행정정보공표목록</a>
+							<ul class="depths2__wrapper">
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/board/categoryList.do?menu_idx=87" class="depth2">사전정보공개</a>
+								</li>
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=88&amp;manage_idx=152" class="depth2">정책실명제</a>
+								</li>
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/board/index.do?menu_idx=89&amp;manage_idx=150" class="depth2">업무추진비</a>
+								</li>
+							</ul>
+						</li>
+						<li class="depths1">
+							<a href="#" class="depth1 depth">공공데이터개방</a>
+							<ul class="depths2__wrapper">
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/html.do?menu_idx=90" class="depth2">공공데이터 이용정책</a>
+								</li>
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/html.do?menu_idx=91" class="depth2">공공데이터 제공목록</a>
+								</li>
+							</ul>
+						</li>
+						<li class="depths1">
+							<a href="#" class="depth1 depth">상주아카이브</a>
+							<ul class="depths2__wrapper">
+								<li id="historicalRecordList" class="depths2">
+									<a href="https://www.sangju.go.kr/archive/historicalRecords/index.do?menu_idx=103" class="depth2">자료소개</a>
+								</li>
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/record/index.do?menu_idx=110" class="depth2">내 파일 기증</a>
+								</li>
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/heritage/index.do?menu_idx=111" class="depth2">기록물(유물)기증</a>
+								</li>
+							</ul>
+						</li>
+						<li class="depths1">
+							<a href="#" class="depth1 depth">정보보호</a>
+							<ul class="depths2__wrapper">
+								<li class="depths2">
+									<a href="https://privacy.kisa.or.kr/counsel/privacy/report_step01.do" class="depth2 blank" target="_blank" title="새창열기"
+										>KISA 개인정보 침해신고센터</a
+									>
+								</li>
+								<li class="depths2">
+									<a href="https://www.sangju.go.kr/archive/infoInfringement/index.do?menu_idx=112" class="depth2">개인정보 침해 신고 현황</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="layerShadow"></div>
+			<!-- navigation// -->
+
+			<script>
+				$("#mlink").change(function () {
+					window.open("about:blank").location.href = $(this).val();
+				});
+
+				function logout() {
+					var redirectUrl = "redirectUrl=" + window.location.href;
+					if (confirm("인증해제 하시겠습니까?")) {
+						location.href = "/archive/logout.do?" + redirectUrl;
+					}
+				}
+			</script>
+		</header>
+
+		<main id="container" class="subLayout">
+			<section class="subTop">
+				<div class="subTop_inner">
+					<ul class="subTop_path">
+						<li class="first">
+							<a href="https://www.sangju.go.kr/archive/index.do">
+								<span class="blind">HOME</span>
+							</a>
+						</li>
+						<li>정보목록</li>
+						<li>정보목록</li>
+					</ul>
+					<strong class="subTop_title">역사와 기록이 함께하는 <span>상주아카이브</span></strong>
+					<ul class="subTop_buttons">
+						<li>
+							<button class="subTop_button subTop_sns" title="SNS공유하기">
+								<span class="blind">SNS공유하기</span>
+							</button>
+							<div class="subTop_sns_itemsWrap">
+								<div class="subTop_sns_items">
+									<strong>SNS<br />공유</strong>
+									<a href="javascript:;" class="subTop_sns_item subTop_snsFacebook" id="snsFacebook">페이스북</a>
+									<a href="javascript:;" class="subTop_sns_item subTop_band">band</a>
+									<a href="javascript:;" class="subTop_sns_item subTop_snsTwitter">twitter</a>
+									<!-- <a href="#" class="subTop_sns_item subTop_snsBlog">네이버블로그</a>
+			                        <a href="#" class="subTop_sns_item subTop_snsYoutube">유투브</a> -->
+									<button class="subTop_sns_close" title="SNS공유 닫기"></button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="javascript:void(0);" onclick="contentSangjuPrint();" class="subTop_button subTop_print" title="인쇄하기">
+								<span class="blind">인쇄하기</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="sub-breadcrumb">
+				<div class="sub-breadcrumb__inner">
+					<div class="sub-breadcrumb__item">
+						<strong>상주아카이브</strong>
+						<div class="sub-breadcrumb__menu">
+							<ul>
+								<li><a href="">기록마당1</a></li>
+								<li><a href="">기록마당2</a></li>
+								<li><a href="">기록마당3</a></li>
+								<li><a href="">기록마당4</a></li>
+								<li><a href="">기록마당5</a></li>
+								<li><a href="">기록마당6</a></li>
+								<li><a href="">기록마당7</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="sub-breadcrumb__item">
+						<strong>기록마당</strong>
+						<div class="sub-breadcrumb__menu">
+							<ul>
+								<li><a href="">기록마당1</a></li>
+								<li><a href="">기록마당2</a></li>
+								<li><a href="">기록마당3</a></li>
+								<li><a href="">기록마당4</a></li>
+								<li><a href="">기록마당5</a></li>
+								<li><a href="">기록마당6</a></li>
+								<li><a href="">기록마당7</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="sub-breadcrumb__item active">
+						<strong>상주시 발간자료</strong>
+						<div class="sub-breadcrumb__menu">
+							<ul>
+								<li><a href="">기록마당1</a></li>
+								<li><a href="">기록마당2</a></li>
+								<li><a href="">기록마당3</a></li>
+								<li><a href="">기록마당4</a></li>
+								<li><a href="">기록마당5</a></li>
+								<li><a href="">기록마당6</a></li>
+								<li><a href="">기록마당7</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="subBody">
+				<div class="subBody__title">기록마당</div>
+				<div class="subMenu-depth">
+					<ul>
+						<li class="active">
+							<a href="">상주시 발간자료</a>
+							<ul>
+								<li class="active">
+									<a href="">상주문화원 발간자료</a>
+									<ul>
+										<li class="active">
+											<a href="">5depth menu 예시1</a>
+											<ul>
+												<li class="active"><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시2</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시3</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시4</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="">상주박물관 발간자료</a>
+									<ul>
+										<li>
+											<a href="">5depth menu 예시1</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시2</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시3</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시4</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="">통계연보</a>
+									<ul>
+										<li>
+											<a href="">5depth menu 예시1</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시2</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시3</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시4</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="">상주시 발간자료</a>
+									<ul>
+										<li>
+											<a href="">5depth menu 예시1</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시2</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시3</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시4</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="">마을이야기</a>
+							<ul>
+								<li>
+									<a href="">상주문화원 발간자료</a>
+									<ul>
+										<li>
+											<a href="">5depth menu 예시1</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시2</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시3</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시4</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="">상주박물관 발간자료</a>
+									<ul>
+										<li>
+											<a href="">5depth menu 예시1</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시2</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시3</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시4</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="">통계연보</a>
+									<ul>
+										<li>
+											<a href="">5depth menu 예시1</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시2</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시3</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시4</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="">상주시 발간자료</a>
+									<ul>
+										<li>
+											<a href="">5depth menu 예시1</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시2</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시3</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="">5depth menu 예시4</a>
+											<ul>
+												<li><a href="">: 6depth menu 예시1</a></li>
+												<li><a href="">: 6depth menu 예시2</a></li>
+												<li><a href="">: 6depth menu 예시3</a></li>
+												<li><a href="">: 6depth menu 예시4</a></li>
+												<li><a href="">: 6depth menu 예시5</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="subMenu-depth__banner">
+						<a href="">상주기록물 기증 신청하기</a>
+						<a href="">개인정보노출 및 불편 신고하기</a>
+					</div>
+				</div>
+				<script>
+					$(document).ready(function () {
+						$(".subMenu-depth ul li a").on("click", function () {
+							$(this).parent("li").siblings("li").removeClass("active");
+							$(this).parent("li").toggleClass("active");
+							return false;
+						});
+					});
+				</script>
+
+				<script src="https://www.open.go.kr/api/openAPI_dec.down?apiKey=G3GFPyZTlUrWYpqAbGvVrg%3D%3D"></script>
+				<script type="text/javaScript">
+					var openDataYn = 'N';
+
+					$(function () {
+						var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="loading" src="https://www.sangju.go.kr/archive/resources/common/img/viewLoading.gif" />').appendTo(document.body).hide();
+
+					       if (typeof openAPI == "undefined") {
+					           alert("안정적인 정보공개포털 운영을 위한 시스템 정기점검을 실시합니다.\n점검시간 중에는 서비스 이용이 중단되오니 참고하시기 바랍니다.");
+					           return false;
+					       }
+					       openAPI.param.display = 10;
+					       dataLoad();
+
+						setTimeout(noDataView,2000);
+
+						$('#searchKeyword').on("keyup", function (e) {
+							if (e.keyCode == 13) {
+								searchTitle();
+							}
+						});
+					   });
+
+					   function dataLoad() {
+					       if (typeof openAPI == "undefined") {
+					           alert("안정적인 정보공개포털 운영을 위한 시스템 정기점검을 실시합니다.\n점검시간 중에는 서비스 이용이 중단되오니 참고하시기 바랍니다.");
+					           return false;
+					       }
+
+						$("#loading").show();
+						$("#loading_img").show();
+
+						openAPI.getList(function (success, error) {
+							openDataYn = 'Y';
+
+					           if (error) {
+					               alert(error.error);
+					           } else {
+								$('#loading').hide();
+								$('#loading_img').hide();
+					               var onePageList = success.info.display;
+					               var realPage = success.info.pageNo;
+					               var boardTotalNo = success.info.totalCount;
+					               var totalPage = Math.floor(boardTotalNo / onePageList);
+					               var result = success.data;
+					               $("#openBillingTable > tbody").empty();
+					               var str = "";
+					               if (result.length > 0) {
+					                   var countNo = (realPage == 1) ? boardTotalNo : boardTotalNo - (onePageList * (realPage - 1));
+					                   $.each(result, function (index, data) {
+					                       var regDateConv = ((data.REGDATE).substr(0, 4)) + "-" + ((data.REGDATE).substr(4, 2)) + "-" + ((data.REGDATE).substr(6, 2));
+					                       str += "<tr>";
+					                       str += "<td class='mobile__hide'>" + countNo + "</td>";
+					                       str += "<td class='table__tiele maxEllipsis1' style='padding-left:10px;'><a onclick=\"dataDetail(\'" + data.PRDNDT + "\',\'" + data.PRDNNSTRGSTNO + "\')\" href='javascript:;'>" + data.TITLE + "</a></td>";
+					                       str += "<td>" + data.DEPTNM + "</td>";
+					                       str += "<td class='mobile__hide'>" + regDateConv + "</td>";
+					                       str += "</tr>";
+					                       countNo--;
+					                   });
+					               } else {
+					                   str += "<tr>";
+					                   str += "<td colspan=\"4\">검색된 내용이 없습니다.</td>";
+					                   str += "</tr>";
+					               }
+					               $("#openBillingTable > tbody").append(str);
+					               $("#totalCount").text(success.info.totalCount);
+					           }
+					           setOpenPageHtml(success.info);
+					           $('#openBillingTable').addClass('maxTable');
+					       });
+
+
+
+					       return false;
+					   };
+
+					function noDataView() {
+						if(openDataYn == 'N') {
+							var str = "";
+							str += "일시적인 오류로 정보공개시스템 데이터를 가져올 수 없습니다.";
+							$("#dataNone").append(str);
+							$("#loading").hide();
+							$("#loading_img").hide();
+						}
+					}
+
+					   function setOpenPageHtml(info) {
+					       var infoDisplay = Number(info.display);
+					       var infoPageNo = Number(info.pageNo);
+					       var infoTotalCount = Number(info.totalCount);
+					       var totalPage = Math.floor((infoTotalCount - 1) / infoDisplay) + 1;
+					       var startPage = (Math.floor((infoPageNo - 1) / 10) * 10) + 1;
+					       var endPage = (startPage + 9 > totalPage) ? totalPage : startPage + 9;
+					       var prevPage = (startPage - 10 < 1) ? 1 : startPage - 10;
+					       var nextPage = (startPage + 10 > totalPage) ? totalPage : startPage + 10;
+
+					       var firstPage = 1;
+					       var lastPage = totalPage;
+					       // 검색없을경우
+					       if (infoTotalCount == 0) {
+					           $('#board_paging').html('');
+							$('.subKeyword_total').html('전체 0건/1페이지');
+					           return;
+					       }
+
+						// 조회 페이지 카운트 처리
+						var pageCountTEXT = '';
+						if (infoTotalCount > 0) {
+							pageCountTEXT = '전체 '+ infoTotalCount +'건/'+ infoPageNo +'페이지';
+							$('.subKeyword_total').html(pageCountTEXT);
+						}
+
+					       // 페이징처리
+					       var pageHTML = '';
+					       pageHTML = pageHTML;
+					       if (endPage > 11) {
+					           pageHTML = pageHTML + '<button class="maxPagination_start" onclick="paging(' + firstPage + ')" title="처음 페이지"></button>';
+					           pageHTML = pageHTML + '<button class="maxPagination_prev" onclick="paging(' + prevPage + ')" title="이전 페이지"></button>';
+					       }
+
+					       for (var i = startPage; i <= endPage; i++) {
+
+					           if (i == infoPageNo) {
+					               pageHTML = pageHTML + '<a class="maxPagination_page current" href="javascript:;" aria-live="assertive" aria-current="page" value="' + i + '"><span>' + i + '</span></a>';
+					           } else {
+					               pageHTML = pageHTML + '<a class="maxPagination_page" href="javascript:;" onclick="paging(' + i + ');return false;" value="' + i + '"><span>' + i + '</span></a>';
+					           }
+
+					       }
+
+					       if (lastPage > 10) {
+					           pageHTML = pageHTML + '<button class="maxPagination_next" onclick="paging(' + nextPage + ')" title="다음 페이지"></button>';
+					           pageHTML = pageHTML + '<button class="maxPagination_end" onclick="paging(' + lastPage + ')" title="끝 페이지"></button>';
+					       }
+
+					       pageHTML = pageHTML;
+					       $('#board_paging').html(pageHTML);
+
+
+					       $("#board_paging .maxPagination_start").css({"background-image":"url(https://www.sangju.go.kr//archive/resources/homepage/archive/images/arrow_pagenation_start.png)"});
+					       $("#board_paging .maxPagination_prev").css({"background-image":"url(https://www.sangju.go.kr//archive/resources/homepage/archive/images/arrow_pagenation_prev.png)"});
+
+					       $("#board_paging .maxPagination_next").css({"background-image":"url(https://www.sangju.go.kr//archive/resources/homepage/archive/images/arrow_pagenation_next.png)"});
+					       $("#board_paging .maxPagination_end").css({"background-image":"url(https://www.sangju.go.kr//archive/resources/homepage/archive/images/arrow_pagenation_end.png)"});
+					   }
+
+					   // 페이지 이동
+					   function paging(num) {
+					       openAPI.param.pageNo = num;
+					       dataLoad();
+					   };
+
+					   // 제목검색
+					   function searchTitle() {
+					       openAPI.param.q = document.getElementById("searchKeyword").value;
+					       openAPI.param.pageNo = 1;
+					       dataLoad();
+					   }
+
+					   function dataDetail(prdnDt, prdnNstRgstNo) {
+					       if (typeof openAPI == "undefined") {
+					           alert("안정적인 정보공개포털 운영을 위한 시스템 정기점검을 실시합니다.\n점검시간 중에는 서비스 이용이 중단되오니 참고하시기 바랍니다.");
+					           return false;
+					       }
+					       openAPI.getDetail(prdnDt, prdnNstRgstNo, function (result, error) {
+					           if (error) {
+					               alert(error.error);
+					           } else {
+					               $("#infoSj").html(result.infoSj);
+					               $("#prcsNstNm").html(result.prcsNstNm);
+					               $("#chrgDeptNm").html(result.chrgDeptNm);
+					               $("#chgrNmpn").html(result.chgrNmpn);
+					               $("#prdnDtView").html(result.prdnDtView.replace(/\./g,'-'));
+					               $("#docNo").html(result.docNo);
+					               $("#prsrvPdCd").html(result.prsrvPdCd);
+					               $("#unitJobNm").html(result.unitJobNm);
+					               $("#dlsrCdNm").html(result.dlsrCdNm);
+					               $("#nstClNm").html(result.nstClNm);
+					               //$("#btnBilling").html('<button class="btn" style="height:34px; line-height:1.7em; padding:5px 15px 7px 15px; background:none; border:2px solid #1e4da4; color:#1e4da4; font-weight:bold; cursor:pointer;" onclick="goBilling(\''+result.prdnDt+'\',\''+result.prdnNstRgstNo+'\')">청구하기</button>');
+					               $('#board_paging').hide();
+					           }
+					       });
+
+					       setTimeout(function(){
+					        listDetailControl('detail');
+					       }, 100);
+					   }
+
+					   //청구하기 창 오픈
+					   // function goBilling(prdnDt, prdnNstRgstNo){
+					   //     openAPI.getBillingUrl(prdnDt, prdnNstRgstNo, function(result, error){
+					   // 		window.open(result);
+					   //     });
+					   // }
+
+					   function listDetailControl(act) {
+					       $("#info_search").css('display', (act == "list" ? "flex" : "none"));
+					       $("#info_list").css('display', (act == "list" ? "block" : "none"));
+					       $("#info_detail").css('display', (act == "detail" ? "block" : "none"));
+
+					       if (act == "list") {
+					           $("#infoSj").html("정보목록 상세 데이터 로드중입니다...");
+					           $("#prcsNstNm").html("");
+					           $("#chrgDeptNm").html("");
+					           $("#chgrNmpn").html("");
+					           $("#prdnDtView").html("");
+					           $("#docNo").html("");
+					           $("#prsrvPdCd").html("");
+					           $("#unitJobNm").html("");
+					           $("#dlsrCdNm").html("");
+					           $("#nstClNm").html("");
+					           $("#btnBilling").html("");
+					           $('#board_paging').show();
+					       }
+					   }
+				</script>
+				<style>
+					/* 로딩*/
+					#loading {
+						height: 100%;
+						left: 0px;
+						position: fixed;
+						_position: absolute;
+						top: 0px;
+						width: 100%;
+						filter: alpha(opacity = 50);
+						-moz-opacity: 0.5;
+						opacity: 0.5;
+					}
+					.loading {
+						background-color: white;
+						z-index: 9999;
+					}
+					#loading_img {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						height: 35px;
+						margin-top: -75px;
+						margin-left: -75px;
+						z-index: 200;
+					}
+				</style>
+				<!-- 공공누리 -->
+				<div class="subPage">
+					<div class="printPage">
+						<strong class="stt1">정보목록</strong>
+						<!-- //subKeywordSearchForm -->
+						<div id="info_search" class="subKeywordSearchForm">
+							<div class="subKeyword_total"></div>
+							<label for="subKeyword_select" class="blind">키워드 검색 그룹</label>
+							<select name="" id="subKeyword_select" class="subKeyword_select">
+								<option value="">제목</option>
+							</select>
+							<div class="subKeyword_search">
+								<label for="searchKeyword" class="blind">키워드 입력</label>
+								<input type="text" id="searchKeyword" class="subKeyword_search_key" placeholder="키워드 입력" />
+								<button type="button" class="subKeyword_search_button" onclick="searchTitle()" title="검색하기"></button>
+							</div>
+						</div>
+						<!-- subKeywordSearchForm// -->
+
+						<!-- // list -->
+						<!-- //maxBoardGallery -->
+						<div class="maxTableData">
+							<section id="info_list" class="maxBoardLibrary">
+								<!-- maxImgBoard : original or listType -->
+								<table id="openBillingTable">
+									<caption>
+										정보목록 게시물 안내
+									</caption>
+									<colgroup>
+										<col class="mobile__hide max15per" />
+										<col class="max50per" />
+										<col class="max20per" />
+										<col class="mobile__hide max15per" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" class="mobile__hide">번호</th>
+											<th scope="col">제목</th>
+											<th scope="col">담당자</th>
+											<th scope="col" class="mobile__hide">작성일</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="dataNone" colspan="4"></td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+						</div>
+						<!-- // view -->
+						<div id="info_detail" class="maxBoardView" style="display: none">
+							<div class="maxBoardView__header">
+								<div id="infoSj" class="maxBoardView__title"></div>
+								<div class="maxBoardView__info">
+									<!-- // maxForm -->
+									<div class="maxForm">
+										<div class="maxFormFieldset">
+											<div class="maxFormTable">
+												<!-- // maxFormTr -->
+												<div class="maxFormTr">
+													<div class="maxFormTh maxFormTh_col6">기관명</div>
+													<div class="maxFormTd">
+														<div id="prcsNstNm" class="maxFormTdBody"></div>
+													</div>
+													<div class="maxFormTh maxFormTh_col6">담당부서</div>
+													<div class="maxFormTd maxFormTd_col6">
+														<div id="chrgDeptNm" class="maxFormTdBody"></div>
+													</div>
+												</div>
+												<!-- maxFormTr // -->
+												<!-- // maxFormTr -->
+												<div class="maxFormTr">
+													<div class="maxFormTh maxFormTh_col6">담당자명</div>
+													<div class="maxFormTd">
+														<div id="chgrNmpn" class="maxFormTdBody"></div>
+													</div>
+													<div class="maxFormTh maxFormTh_col6">생산일자</div>
+													<div class="maxFormTd maxFormTd_col6">
+														<div id="prdnDtView" class="maxFormTdBody"></div>
+													</div>
+												</div>
+												<!-- maxFormTr // -->
+
+												<!-- // maxFormTr -->
+												<div class="maxFormTr">
+													<div class="maxFormTh maxFormTh_col6">문서번호</div>
+													<div class="maxFormTd">
+														<div id="docNo" class="maxFormTdBody"></div>
+													</div>
+													<div class="maxFormTh maxFormTh_col6">보존기간</div>
+													<div class="maxFormTd maxFormTd_col6">
+														<div id="prsrvPdCd" class="maxFormTdBody"></div>
+													</div>
+												</div>
+												<!-- maxFormTr // -->
+
+												<!-- // maxFormTr -->
+												<div class="maxFormTr">
+													<div class="maxFormTh maxFormTh_col6">단위업무</div>
+													<div class="maxFormTd">
+														<div id="unitJobNm" class="maxFormTdBody"></div>
+													</div>
+													<div class="maxFormTh maxFormTh_col6">공개여부</div>
+													<div class="maxFormTd maxFormTd_col6">
+														<div id="dlsrCdNm" class="maxFormTdBody"></div>
+													</div>
+												</div>
+												<!-- maxFormTr // -->
+
+												<!-- // maxFormTr -->
+												<div class="maxFormTr">
+													<div class="maxFormTh maxFormTh_col7">분류체계</div>
+													<div class="maxFormTd maxFormTd_col7">
+														<div id="nstClNm" class="maxFormTdBody"></div>
+													</div>
+												</div>
+												<!-- maxFormTr // -->
+											</div>
+										</div>
+									</div>
+									<!-- maxForm // -->
+									<div class="maxButtons maxButtons_right">
+										<button onclick="listDetailControl('list');" class="maxButtons_list"><span>목록으로</span></button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- maxBoardGallery// -->
+
+						<!-- //maxPagination -->
+						<article id="board_paging" class="maxPagination">
+							<!-- 모바일 화면은 5페이지 그 외 10페이지로 노출 -->
+						</article>
+					</div>
+					<div id="menuRatingDiv"></div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<section class="maxSlider footerBanners_wrap">
+				<article class="footerBanners_title">
+					<strong>배너모음</strong>
+					<div class="footerBanners_buttons">
+						<button type="button" class="maxButton_prev">이전</button>
+						<button type="button" class="maxButton_pause">일시정지</button>
+						<button type="button" class="maxButton_next">다음</button>
+					</div>
+				</article>
+				<div class="footerBanner_items">
+					<div class="footerBanner_item">
+						<a href="http://w-sinnari.sangju.go.kr" target="_blank" title="새창열기">상주시종합자원봉사센터</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://www.sjbokji.or.kr" target="_blank" title="새창열기">상주시종합사회복지관</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://www.easylaw.go.kr" target="_blank" title="새창열기">찾기쉬운 생활법령</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://110.go.kr" target="_blank" title="새창열기">정부민원안내콜센터110</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="https://www.safety.or.kr/" target="_blank" title="새창열기">대한산업안전협회</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://gbwn1389.or.kr" target="_blank" title="새창열기">경북서부노인보호전문기관</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="https://cleanbudongsan.go.kr" target="_blank" title="새창열기">부동산거래질서교란행위 신고센터</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://www.gumi1391.or.kr" target="_blank" title="새창열기">경북서부 아동보호전문기관</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="https://www.liveinkorea.kr/portal/main/intro.do" target="_blank" title="새창열기">다문화가족지원포털 다누리</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://www.give.go.kr" target="_blank" title="새창열기">정치후원금 기부 안내</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="https://www.laiis.go.kr/lips/nya/lrn/localRegulationList.do" target="_blank" title="새창열기">중앙부처 법령 유권해석</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://www.nec.go.kr/portal/contents.do?menuNo=200500" target="_blank" title="새창열기">우리동네희망공약</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://www.safemap.go.kr" target="_blank" title="새창열기">생활안전지도</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="https://www.safetyreport.go.kr/" target="_blank" title="새창열기">안전신문고</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://www.simpan.go.kr" target="_blank" title="새창열기">온라인 행정심판</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://w-sinnari.sangju.go.kr" target="_blank" title="새창열기">상주시종합자원봉사센터</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://www.sjbokji.or.kr" target="_blank" title="새창열기">상주시종합사회복지관</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://www.easylaw.go.kr" target="_blank" title="새창열기">찾기쉬운 생활법령</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://110.go.kr" target="_blank" title="새창열기">정부민원안내콜센터110</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="https://www.safety.or.kr/" target="_blank" title="새창열기">대한산업안전협회</a>
+					</div>
+					<div class="footerBanner_item">
+						<a href="http://gbwn1389.or.kr" target="_blank" title="새창열기">경북서부노인보호전문기관</a>
+					</div>
+				</div>
+				<button type="button" class="maxGoToTopRunner" title="상단으로">
+					<span class="blind">상단으로 이동</span>
+				</button>
+			</section>
+
+			<section class="footerLinks_wrap">
+				<div class="footerLinks_inner">
+					<article class="footerLinks">
+						<button type="button" class="footerLinks_button">시/군 홈페이지</button>
+						<ul>
+							<li>
+								<a href="https://www.gb.go.kr/" target="_blank" title="새창열기">경상북도</a>
+							</li>
+							<li>
+								<a href="https://www.pohang.go.kr/" target="_blank" title="새창열기">포항시</a>
+							</li>
+							<li>
+								<a href="https://www.gyeongju.go.kr/" target="_blank" title="새창열기">경주시</a>
+							</li>
+							<li>
+								<a href="https://www.gc.go.kr/" target="_blank" title="새창열기">김천시</a>
+							</li>
+							<li>
+								<a href="https://www.andong.go.kr/" target="_blank" title="새창열기">안동시</a>
+							</li>
+							<li>
+								<a href="https://www.gumi.go.kr/" target="_blank" title="새창열기">구미시</a>
+							</li>
+							<li>
+								<a href="https://yeongju.go.kr/" target="_blank" title="새창열기">영주시</a>
+							</li>
+							<li>
+								<a href="https://www.yc.go.kr/" target="_blank" title="새창열기">영천시</a>
+							</li>
+							<li>
+								<a href="https://www.yc.go.kr/" target="_blank" title="새창열기">문경시</a>
+							</li>
+							<li>
+								<a href="https://www.gbgs.go.kr/" target="_blank" title="새창열기">경산시</a>
+							</li>
+							<li>
+								<a href="https://www.gunwi.go.kr/" target="_blank" title="새창열기">군위군</a>
+							</li>
+							<li>
+								<a href="https://www.usc.go.kr/" target="_blank" title="새창열기">의성군</a>
+							</li>
+							<li>
+								<a href="https://www.cs.go.kr/" target="_blank" title="새창열기">청송군</a>
+							</li>
+							<li>
+								<a href="https://www.yyg.go.kr/" target="_blank" title="새창열기">영양군</a>
+							</li>
+							<li>
+								<a href="https://www.yd.go.kr/" target="_blank" title="새창열기">영덕군</a>
+							</li>
+							<li>
+								<a href="https://www.cheongdo.go.kr/" target="_blank" title="새창열기">청도군</a>
+							</li>
+							<li>
+								<a href="http://www.goryeong.go.kr/kor/index.do" target="_blank" title="새창열기">고령군</a>
+							</li>
+							<li>
+								<a href="https://sj.go.kr/" target="_blank" title="새창열기">성주군</a>
+							</li>
+							<li>
+								<a href="https://www.chilgok.go.kr/" target="_blank" title="새창열기">칠곡군</a>
+							</li>
+							<li>
+								<a href="https://www.ycg.kr/" target="_blank" title="새창열기">예천군</a>
+							</li>
+							<li>
+								<a href="http://www.bonghwa.go.kr/open.content/ko/" target="_blank" title="새창열기">봉화군</a>
+							</li>
+							<li>
+								<a href="http://www.uljin.go.kr/index.uljin?contentsSid=1958" target="_blank" title="새창열기">울진군</a>
+							</li>
+							<li>
+								<a href="http://www.ulleung.go.kr/design/covid/intro.html" target="_blank" title="새창열기">울릉군</a>
+							</li>
+						</ul>
+					</article>
+					<article class="footerLinks">
+						<button type="button" class="footerLinks_button">부서별 홈페이지</button>
+						<ul>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3961&pageSeq=2698&tabBoardSeq=34" target="_blank" title="새창열기">기획예산담당관</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3960&pageSeq=2702&tabBoardSeq=35" target="_blank" title="새창열기">공보감사담당관</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3959&pageSeq=2703&tabBoardSeq=36" target="_blank" title="새창열기">미래전략추진단</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3954&pageSeq=2704&tabBoardSeq=37" target="_blank" title="새창열기">총무과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3953&pageSeq=2705&tabBoardSeq=38" target="_blank" title="새창열기">문화예술과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3952&pageSeq=2706&tabBoardSeq=39" target="_blank" title="새창열기">관광진흥과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3951&pageSeq=2707&tabBoardSeq=40" target="_blank" title="새창열기">새마을체육과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3950&pageSeq=2708&tabBoardSeq=41" target="_blank" title="새창열기">세정과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3949&pageSeq=2709&tabBoardSeq=42" target="_blank" title="새창열기">회계과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3948&pageSeq=2710&tabBoardSeq=43" target="_blank" title="새창열기">사회복지과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3947&pageSeq=2711&tabBoardSeq=44" target="_blank" title="새창열기">가족복지과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3946&pageSeq=2712&tabBoardSeq=45" target="_blank" title="새창열기">경제기업과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3945&pageSeq=2713&tabBoardSeq=46" target="_blank" title="새창열기">환경관리과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3944&pageSeq=2714&tabBoardSeq=47" target="_blank" title="새창열기">농업정책과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3943&pageSeq=2715&tabBoardSeq=48" target="_blank" title="새창열기">스마트밸리운영과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3942&pageSeq=2716&tabBoardSeq=49" target="_blank" title="새창열기">축산과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3941&pageSeq=2717&tabBoardSeq=50" target="_blank" title="새창열기">유통마케팅과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3940&pageSeq=2718&tabBoardSeq=51" target="_blank" title="새창열기">산림녹지과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3939&pageSeq=2719&tabBoardSeq=52" target="_blank" title="새창열기">건설과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3938&pageSeq=2720&tabBoardSeq=53" target="_blank" title="새창열기">도시과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3937&pageSeq=2721&tabBoardSeq=54" target="_blank" title="새창열기">농촌개발과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3936&pageSeq=2722&tabBoardSeq=55" target="_blank" title="새창열기">안전재난과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3935&pageSeq=2723&tabBoardSeq=56" target="_blank" title="새창열기">교통에너지과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3934&pageSeq=2724&tabBoardSeq=57" target="_blank" title="새창열기">건축과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3933&pageSeq=2725&tabBoardSeq=58" target="_blank" title="새창열기">민원토지과</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3932&pageSeq=2728&tabBoardSeq=59" target="_blank" title="새창열기">보건소</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3931&pageSeq=2729&tabBoardSeq=60" target="_blank" title="새창열기">농업기술센터</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3930&pageSeq=2730&tabBoardSeq=61" target="_blank" title="새창열기">상하수도사업소</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3929&pageSeq=2731&tabBoardSeq=62" target="_blank" title="새창열기">평생학습원</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3928&pageSeq=2732&tabBoardSeq=63" target="_blank" title="새창열기"
+									>한방산업단지관리사업소</a
+								>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3927&pageSeq=2733&tabBoardSeq=64" target="_blank" title="새창열기">상주박물관</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/tabBoard/view.tc?mn=3926&pageSeq=2734&tabBoardSeq=65" target="_blank" title="새창열기"
+									>국제승마장관리사업소</a
+								>
+							</li>
+						</ul>
+					</article>
+					<article class="footerLinks">
+						<button type="button" class="footerLinks_button">읍/면/동 홈페이지</button>
+						<ul>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/2795/1842.tc?protocol=http" target="_blank" title="새창열기">함창읍</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3218/1883.tc?protocol=http" target="_blank" title="새창열기">사벌국면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3238/1907.tc?protocol=http" target="_blank" title="새창열기">중동면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3258/1927.tc?protocol=http" target="_blank" title="새창열기">낙동면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3278/1947.tc?protocol=http" target="_blank" title="새창열기">청리면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3298/1967.tc?protocol=http" target="_blank" title="새창열기">공성면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3318/1987.tc?protocol=http" target="_blank" title="새창열기">외남면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3338/2007.tc?protocol=http" target="_blank" title="새창열기">내서면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3358/2027.tc?protocol=http" target="_blank" title="새창열기">모동면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3378/2047.tc?protocol=http" target="_blank" title="새창열기">모서면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3398/2067.tc?protocol=http" target="_blank" title="새창열기">화동면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3419/2087.tc?protocol=http" target="_blank" title="새창열기">화서면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3439/2112.tc?protocol=http" target="_blank" title="새창열기">화북면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3459/2132.tc?protocol=http" target="_blank" title="새창열기">외서면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3479/2152.tc?protocol=http" target="_blank" title="새창열기">은척면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3499/2173.tc?protocol=http" target="_blank" title="새창열기">공검면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3526/2193.tc?protocol=http" target="_blank" title="새창열기">이안면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3546/2214.tc?protocol=http" target="_blank" title="새창열기">화남면</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3571/2235.tc?protocol=http" target="_blank" title="새창열기">남원동</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3591/2257.tc?protocol=http" target="_blank" title="새창열기">북문동</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3611/2278.tc?protocol=http" target="_blank" title="새창열기">계림동</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3631/2298.tc?protocol=http" target="_blank" title="새창열기">동문동</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3651/2318.tc?protocol=http" target="_blank" title="새창열기">동성동</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/dong/page/3671/2372.tc?protocol=http" target="_blank" title="새창열기">신흥동</a>
+							</li>
+						</ul>
+					</article>
+					<article class="footerLinks">
+						<button type="button" class="footerLinks_button">유관기관 홈페이지</button>
+						<ul>
+							<li>
+								<a href="https://www.knu.ac.kr/wbbs/wbbs/main/main.action" target="_blank" title="새창열기">경북대학교(상주캠퍼스)</a>
+							</li>
+							<li>
+								<a href="http://www.gbtv.go.kr/" target="_blank" title="새창열기">경북인터넷방송</a>
+							</li>
+							<li>
+								<a href="https://www.spo.go.kr/site/sangju/main.do" target="_blank" title="새창열기">대구지방검찰청상주지청</a>
+							</li>
+							<li>
+								<a href="http://sangju.scinema.org/" target="_blank" title="새창열기">상주 삼백시네마</a>
+							</li>
+							<li>
+								<a href="https://www.gba.go.kr/" target="_blank" title="새창열기">상주감연구소</a>
+							</li>
+							<li>
+								<a href="http://www.gbpolice.go.kr/sangju/index.do" target="_blank" title="새창열기">상주경찰서</a>
+							</li>
+							<li>
+								<a href="http://www.gbe.kr/sje/main.do" target="_blank" title="새창열기">상주교육청</a>
+							</li>
+							<li>
+								<a href="http://web.kma.go.kr/aboutkma/intro/busan/popup/sangju.htm" target="_blank" title="새창열기">상주기상대</a>
+							</li>
+							<li>
+								<a href="http://www.gbelib.kr/sj/index.do" target="_blank" title="새창열기">상주도서관</a>
+							</li>
+							<li>
+								<a href="http://www.sjcc.or.kr/" target="_blank" title="새창열기">상주문화원</a>
+							</li>
+							<li>
+								<a href="https://t.nts.go.kr/sangju/main.do" target="_blank" title="새창열기">상주세무서</a>
+							</li>
+							<li>
+								<a href="https://gb119.go.kr/sj/" target="_blank" title="새창열기">상주소방서</a>
+							</li>
+							<li>
+								<a href="https://www.koreapost.go.kr/" target="_blank" title="새창열기">상주우체국</a>
+							</li>
+							<li>
+								<a href="https://www.knps.or.kr/front/portal/visit/visitCourseMain.do?parkId=120500&menuNo=7020095" target="_blank" title="새창열기"
+									>속리산국립공원</a
+								>
+							</li>
+							<li>
+								<a href="http://www.moel.go.kr/local/yeongju/index.do" target="_blank" title="새창열기">고용노동부 영주지청</a>
+							</li>
+							<li>
+								<a href="http://kostat.go.kr/regional/db/db_rit/5/a/index.action?bmode=dept&ogId=1240385" target="_blank" title="새창열기">통계청상주사무소</a>
+							</li>
+							<li>
+								<a href="https://www.hrdkorea.or.kr/" target="_blank" title="새창열기">한국산업인력관리공단</a>
+							</li>
+							<li>
+								<a href="https://www.bok.or.kr/portal/main/contents.do?menuNo=200846" target="_blank" title="새창열기">한국은행대구경북</a>
+							</li>
+							<li>
+								<a href="https://www.keco.or.kr/kr/main/index.do" target="_blank" title="새창열기">한국환경자원공사</a>
+							</li>
+							<li>
+								<a href="http://sangjucci.korcham.net/front/user/main.do" target="_blank" title="새창열기">상주상공회의소</a>
+							</li>
+							<li>
+								<a href="https://www.koreapost.go.kr/" target="_blank" title="새창열기">한국산업안전보건공단</a>
+							</li>
+							<li>
+								<a href="https://gb.go.kr/Main/open_contents/section/jamsa/index.html" target="_blank" title="새창열기">경상북도잠사곤충사업장</a>
+							</li>
+							<li>
+								<a href="https://www.nnibr.re.kr/" target="_blank" title="새창열기">국립낙동강생물자원관</a>
+							</li>
+							<li>
+								<a href="https://sangjucity.or.kr/" target="_blank" title="새창열기">도시재생지원센터</a>
+							</li>
+							<li>
+								<a href="https://www.hankukhanbok.or.kr/main.asp" target="_blank" title="새창열기">한국한복진흥원</a>
+							</li>
+							<li>
+								<a href="https://www.semas.or.kr/index_main.html" target="_blank" title="새창열기">소상공인시장진흥공단</a>
+							</li>
+						</ul>
+					</article>
+					<article class="footerLinks">
+						<button type="button" class="footerLinks_button">상주시청 패밀리 사이트</button>
+						<ul>
+							<li>
+								<a href="https://www.sangju.go.kr/eng/main.tc" target="_blank" title="새창열기">영문 홈페이지</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/japan/main.tc" target="_blank" title="새창열기">일문 홈페이지</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/chinese/main.tc" target="_blank" title="새창열기">중문 홈페이지</a>
+							</li>
+							<li>
+								<a href="http://cafe.daum.net/cat.daum.netwangsil/" target="_blank" title="새창열기">공성왕실마을</a>
+							</li>
+							<li>
+								<a href="http://gam.invil.org" target="_blank" title="새창열기">구마이곶감정보화마을</a>
+							</li>
+							<li>
+								<a href="http://www.gosg.or.kr/" target="_blank" title="새창열기">승곡체험휴양마을</a>
+							</li>
+							<li>
+								<a href="http://cafe.daum.net/bamwoncafe" target="_blank" title="새창열기">내서밤원마을</a>
+							</li>
+							<li>
+								<a href="https://www.saemaul.or.kr" target="_blank" title="새창열기">새마을운동중앙회</a>
+							</li>
+							<li>
+								<a href="http://podo.invil.org/index.html" target="_blank" title="새창열기">모동반계포도정보화마을</a>
+							</li>
+							<li>
+								<a href="https://cafe.daum.net/sangju-jijang" target="_blank" title="새창열기">상주지장마을</a>
+							</li>
+							<li>
+								<a href="https://cafe.daum.net/menemiakdmf" target="_blank" title="새창열기">상주버들뱅이마을</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/culture/main.tc" target="_blank" title="새창열기">문화회관</a>
+							</li>
+							<li>
+								<a href="https://rtms.sangju.go.kr:9643/rtmsweb/home.do" target="_blank" title="새창열기">부동산거래관리시스템</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/cyberedu/main.tc" target="_blank" title="새창열기">사이버 정보화교육</a>
+							</li>
+							<li>
+								<a href="http://www.liveinkorea.kr/center/main/main.do?centerId=sangjusi" target="_blank" title="새창열기">상주시다문화가족지원센터</a>
+							</li>
+							<li>
+								<a href="http://sportspark.sangju.go.kr/" target="_blank" title="새창열기">상주시생활체육공원</a>
+							</li>
+							<li>
+								<a href="http://sjjh.or.kr/" target="_blank" title="새창열기">상주시장학회</a>
+							</li>
+							<li>
+								<a href="http://sjvc1365.co.kr/" target="_blank" title="새창열기">상주시종합자원봉사센터</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/hanbang/" target="_blank" title="새창열기">상주시한방산업단지</a>
+							</li>
+							<li>
+								<a href="https://health.sangju.go.kr/" target="_blank" title="새창열기">상주시보건소</a>
+							</li>
+							<li>
+								<a href="https://sja.sangju.go.kr/" target="_blank" title="새창열기">상주시농업기술센터</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/sjhorse/" target="_blank" title="새창열기">상주시국제승마장</a>
+							</li>
+							<li>
+								<a href="http://eunjagol.invil.org/index.html" target="_blank" title="새창열기">은자골정보화마을</a>
+							</li>
+							<li>
+								<a href="http://youth.sangju.go.kr/" target="_blank" title="새창열기">상주시청소년수련관</a>
+							</li>
+							<li>
+								<a href="https://cafe.daum.net/b-maul" target="_blank" title="새창열기">버드니체험마을</a>
+							</li>
+							<li>
+								<a href="https://www.dreamstart.go.kr/sangju/" target="_blank" title="새창열기">상주시드림스타트센터</a>
+							</li>
+							<li>
+								<a href="https://cafe.daum.net/tkdwn2" target="_blank" title="새창열기">바르게살기운동경상북도협의회</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/hmh/main.tc" target="_blank" title="새창열기">화령장전투전승기념관</a>
+							</li>
+							<li>
+								<a href="https://www.sangju.go.kr/opencenter/main.tc" target="_blank" title="새창열기">청년센터들락날락</a>
+							</li>
+						</ul>
+					</article>
+				</div>
+			</section>
+
+			<section class="footerInformation_wrap">
+				<div class="footer_left">
+					<article class="footer_pageLinks">
+						<a href="https://www.sangju.go.kr/page/3007/2773.tc">개인정보처리방침</a>
+						<a href="https://www.sangju.go.kr/page/3006/2774.tc">영상정보처리기기방침</a>
+						<a href="https://www.sangju.go.kr/page/3003/2778.tc">이메일무단수집거부</a>
+						<a href="https://www.sangju.go.kr/board/list.tc?mn=3009&mngNo=819&pageSeq=2772">홈페이지불편/건의사항</a>
+						<a href="https://www.sangju.go.kr/page/3024/2779.tc">뷰어다운로드</a>
+						<a href="https://www.sangju.go.kr/page/2451/1748.tc">찾아오시는길</a>
+						<a href="https://www.gov.kr/portal/orgInfo?Mcode=11180">정부/지자체 조직도</a>
+					</article>
+					<article class="footer_address">
+						<ul>
+							<li><span>주소</span> (37211) 경상북도 상주시 상산로 223(남성동 140-3)</li>
+							<li><span>대표전화</span> 054)537-6114</li>
+							<li><span>팩스</span> 054)537-6308</li>
+							<li><span>메일</span> sangjusi@korea.kr</li>
+						</ul>
+						<cite>
+							<span class="res_copyright">Copyright Sangju-city. All Rights Reserved</span>
+							<span style="padding-left: 15px; font-size: 12px"
+								>* 본 홈페이지는 게시된 이메일주소 자동수집을 거부하며, 이를 위반시 정보통신망법에 의해 처벌됨을 유념하시기 바랍니다.</span
+							>
+						</cite>
+					</article>
+				</div>
+				<article class="footer_right">
+					<span class="footer_mark1">
+						<span class="blind">Just Sangju QRcode</span>
+					</span>
+				</article>
+			</section>
+		</footer>
+	</body>
+</html>
