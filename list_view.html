@@ -451,7 +451,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="sub-breadcrumb__item active">
+					<div class="sub-breadcrumb__item on">
 						<strong>상주시 발간자료</strong>
 						<div class="sub-breadcrumb__menu">
 							<ul>
@@ -843,15 +843,32 @@
 						</li>
 					</ul>
 					<div class="subMenu-depth__banner">
-						<a href="">상주기록물 기증 신청하기</a>
-						<a href="">개인정보노출 및 불편 신고하기</a>
+						<a href="">상주기록물 기증 신청하기 <img src="./archive/resources/homepage/archive/images/ico-file.png" alt="" /></a>
+						<a href="">개인정보노출 및 불편 신고하기 <img src="./archive/resources/homepage/archive/images/ico-declaration2.png" alt="" /></a>
 					</div>
 				</div>
 				<script>
 					$(document).ready(function () {
+						$(".sub-breadcrumb__item").on("click", function () {
+							if ($(this).hasClass("active")) {
+								$(".sub-breadcrumb__item").removeClass("active");
+							} else {
+								$(".sub-breadcrumb__item").removeClass("active");
+								$(this).addClass("active");
+							}
+						});
+
+						$("html").on("click", function (e) {
+							if ($(e.target).hasClass("sub-breadcrumb__item") || $(e.target).parents().hasClass("sub-breadcrumb__item")) {
+							} else {
+								$(".sub-breadcrumb__item").removeClass("active");
+							}
+						});
+
 						$(".subMenu-depth ul li a").on("click", function () {
-							$(this).parent("li").siblings("li").removeClass("active");
 							$(this).parent("li").toggleClass("active");
+							$(this).parent("li").siblings("li").removeClass("active");
+							$(this).parent("li").find("li").removeClass("active");
 							return false;
 						});
 					});
@@ -1228,8 +1245,8 @@
 						});
 						$(".multiple-items").slick({
 							infinite: true,
-							slidesToShow: 3,
-							slidesToScroll: 3,
+							slidesToShow: 5,
+							slidesToScroll: 1,
 						});
 					});
 				</script>
