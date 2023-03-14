@@ -49,6 +49,53 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.0/swiper-bundle.min.js"
+			integrity="sha512-sR63/L3Slqn0OWMMafv7gmRGxkYJOcfgdN3jznwea9NYiett6R+cGdZ0t0TRHeH1gZogMyLE1oQpQ0Lc6ULKbg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.0/swiper-bundle.css"
+			integrity="sha512-6HEJkWR1zijwiB3XwQE9eHjDBJmA/Fcl88LlxMba1EC1kakrlXOA14rJmQujhDkTQ6/TSXmGo0w57GbnZ2FSdQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<script>
+			$(document).ready(function () {
+				var swiper = new Swiper(".archive-main-head__swiper .swiper", {
+					loop: true,
+					spaceBetween: 30,
+					effect: "fade",
+					navigation: {
+						nextEl: ".archive-main-head__swiper .swiper-button-next",
+						prevEl: ".archive-main-head__swiper .swiper-button-prev",
+					},
+					pagination: {
+						el: ".archive-main-head__swiper .swiper-pagination",
+						type: "fraction",
+					},
+				});
+
+				//cloud
+				function cloudColor() {
+					$(".archive-main-head__cloud").removeClass("active");
+					setTimeout(() => {
+						$(".archive-main-head__cloud").removeClass("active");
+						$(".archive-main-head__cloud .jqcloud-word").each(function (index, item) {
+							var color = $(this).css("color");
+							$(this).css("background", color);
+						});
+						$(".archive-main-head__cloud").addClass("active");
+					}, 500);
+				}
+				cloudColor();
+				$(window).on("resize", function () {
+					cloudColor();
+				});
+			});
+		</script>
 	</head>
 
 	<body>
@@ -1393,26 +1440,27 @@
 							역사와 기록을 함께 만들어가는 <br />
 							<strong>상주정보광장</strong>
 						</div>
-						<article class="maxSlider mainKeywordList_wrap" style="display: none">
-							<div class="mainKeywordList">
-								<strong>추천</strong>
-								<button class="maxButton_prev" title="이전">prev</button>
-								<div class="mainKeyword_items">
-									<div class="mainKeyword_item">
-										<a href="#" onclick="getSearch('가을')"> 가을</a>
-									</div>
-
-									<div class="mainKeyword_item">
-										<a href="#" onclick="getSearch('학전망대')"> 학전망대</a>
-									</div>
-
-									<div class="mainKeyword_item">
-										<a href="#" onclick="getSearch('일몰')"> 일몰</a>
-									</div>
+						<div class="archive-main-head__swiper">
+							<div class="archive-main-head__swiper-title">추천</div>
+							<div class="swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">가을</div>
+									<div class="swiper-slide">학전망대</div>
+									<div class="swiper-slide">일몰</div>
 								</div>
-								<button class="maxButton_next" title="다음">next</button>
+								<div class="swiper-button-next"></div>
+								<div class="swiper-button-prev"></div>
 							</div>
-						</article>
+							<div class="swiper-pagination"></div>
+						</div>
+						<div class="archive-main-head__keyword">
+							<input type="text" placeholder="키워드를 입력하세요" />
+							<button>검색</button>
+						</div>
+						<div class="archive-main-head__btn">
+							<a href="">상주기록물 기증 신청하기 <img src="./archive/resources/homepage/archive/images/2023/ico-main-file.png" alt="" /></a>
+							<a href="">개인정보노출 및 불편 신고하기 <img src="./archive/resources/homepage/archive/images/2023/ico-main-declaration.png" alt="" /></a>
+						</div>
 					</div>
 					<div class="archive-main-head__cloud">
 						<article class="mainWordCloud_shape" id="mainWordCloud_shape">
@@ -1425,27 +1473,27 @@
 					<div class="archive-main-service__title">주요서비스</div>
 					<div class="archive-main-service__link">
 						<a href="">
-							<p><img src="./archive/resources/homepage/archive/images/main_service01.png" alt="" /></p>
+							<p><img src="./archive/resources/homepage/archive/images/2023/main_service01.png" alt="" /></p>
 							<span>사전정보공개</span>
 						</a>
 						<a href="">
-							<p><img src="./archive/resources/homepage/archive/images/main_service02.png" alt="" /></p>
+							<p><img src="./archive/resources/homepage/archive/images/2023/main_service02.png" alt="" /></p>
 							<span>정책실명제</span>
 						</a>
 						<a href="">
-							<p><img src="./archive/resources/homepage/archive/images/main_service03.png" alt="" /></p>
+							<p><img src="./archive/resources/homepage/archive/images/2023/main_service03.png" alt="" /></p>
 							<span>업무추진비</span>
 						</a>
 						<a href="">
-							<p><img src="./archive/resources/homepage/archive/images/main_service04.png" alt="" /></p>
+							<p><img src="./archive/resources/homepage/archive/images/2023/main_service04.png" alt="" /></p>
 							<span>비공개 세부기준</span>
 						</a>
 						<a href="">
-							<p><img src="./archive/resources/homepage/archive/images/main_service05.png" alt="" /></p>
+							<p><img src="./archive/resources/homepage/archive/images/2023/main_service05.png" alt="" /></p>
 							<span>공공데이터 이용정책</span>
 						</a>
 						<a href="">
-							<p><img src="./archive/resources/homepage/archive/images/main_service06.png" alt="" /></p>
+							<p><img src="./archive/resources/homepage/archive/images/2023/main_service06.png" alt="" /></p>
 							<span>공공데이터 제공목록</span>
 						</a>
 					</div>
