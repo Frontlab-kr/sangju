@@ -625,11 +625,11 @@
 		&__link {
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-			gap: 65px;
+			gap: 10px;
 			a {
 				display: block;
 				width: 100%;
-				width: 206px;
+				max-width: 206px;
 				margin: 0 auto;
 				text-align: center;
 				p {
@@ -656,8 +656,19 @@
 					color: #000;
 				}
 			}
-			@media screen and (max-width: 1600px) {
-				grid-template-columns: 1fr 1fr 1fr;
+			@media screen and (max-width: 1400px) {
+				gap: 5px;
+				a {
+					max-width: 150px;
+					p {
+						height: 143px;
+						border-radius: 30px;
+					}
+					span {
+						margin-top: 15px;
+						font-size: 16px;
+					}
+				}
 			}
 		}
 		@media screen and (max-width: 1024px) {
@@ -765,8 +776,29 @@
 			@media screen and (max-width: 1600px) {
 				grid-template-columns: 1fr 1fr 1fr;
 			}
-			@media screen and (max-width: 1300px) {
-				grid-template-columns: 1fr 1fr;
+			@media screen and (max-width: 1400px) {
+				grid-template-columns: 1fr 1fr 1fr;
+				gap: 40px;
+				a {
+					width: 300px;
+					border-radius: 15px;
+					img {
+						height: 160px;
+					}
+					p {
+						margin: 15px 10px 20px;
+						font-size: 18px;
+					}
+					span {
+						margin: 0 10px 15px;
+						font-size: 12px;
+						&::before {
+							width: 24px;
+							height: 16px;
+							margin-right: 10px;
+						}
+					}
+				}
 			}
 			@media screen and (max-width: 1024px) {
 				grid-template-columns: 1fr 1fr 1fr;
