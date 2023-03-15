@@ -502,7 +502,7 @@
 		@media screen and (max-width: 1024px) {
 			display: block;
 			margin: 12px 12px 0;
-			padding: 36px 20px 40px;
+			padding: 36px 20px 80px;
 			&__swiper {
 				width: 300px;
 				height: 40px;
@@ -571,26 +571,31 @@
 				}
 			}
 			&__btn {
-				display: flex;
-				justify-content: center;
+				display: block;
 				position: absolute;
 				left: 0;
 				bottom: 20px;
 				right: 0;
+				padding: 0 20px;
 				a {
+					position: relative;
+					justify-content: center;
+					max-width: 300px;
 					height: 27px;
-					margin: 0 2px;
+					margin: 5px auto 0;
 					padding: 0 12.5px;
 					font-size: 9px;
 					letter-spacing: -0.45px;
 					img {
+						position: absolute;
+						right: 10px;
 						margin-left: 0px;
 						transform: scale(0.5);
 					}
 				}
 			}
 			&__cloud {
-				width: 50%;
+				width: 100%;
 				margin: 0 auto;
 				.jqcloud {
 					font-size: 5px;
