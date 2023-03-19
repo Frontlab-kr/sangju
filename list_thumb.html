@@ -49,6 +49,19 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.0/swiper-bundle.min.js"
+			integrity="sha512-sR63/L3Slqn0OWMMafv7gmRGxkYJOcfgdN3jznwea9NYiett6R+cGdZ0t0TRHeH1gZogMyLE1oQpQ0Lc6ULKbg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.0/swiper-bundle.css"
+			integrity="sha512-6HEJkWR1zijwiB3XwQE9eHjDBJmA/Fcl88LlxMba1EC1kakrlXOA14rJmQujhDkTQ6/TSXmGo0w57GbnZ2FSdQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 	</head>
 
 	<body>
@@ -421,6 +434,7 @@
 					</ul>
 				</div>
 			</section>
+			<!-- 2023 추가 -->
 			<section class="sub-breadcrumb">
 				<div class="sub-breadcrumb__inner">
 					<div class="sub-breadcrumb__item">
@@ -451,7 +465,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="sub-breadcrumb__item active">
+					<div class="sub-breadcrumb__item on">
 						<strong>상주시 발간자료</strong>
 						<div class="sub-breadcrumb__menu">
 							<ul>
@@ -843,15 +857,32 @@
 						</li>
 					</ul>
 					<div class="subMenu-depth__banner">
-						<a href="">상주기록물 기증 신청하기</a>
-						<a href="">개인정보노출 및 불편 신고하기</a>
+						<a href="">상주기록물 기증 신청하기 <img src="./archive/resources/homepage/archive/images/2023/ico-file.png" alt="" /></a>
+						<a href="">개인정보노출 및 불편 신고하기 <img src="./archive/resources/homepage/archive/images/2023/ico-declaration2.png" alt="" /></a>
 					</div>
 				</div>
 				<script>
 					$(document).ready(function () {
+						$(".sub-breadcrumb__item").on("click", function () {
+							if ($(this).hasClass("active")) {
+								$(".sub-breadcrumb__item").removeClass("active");
+							} else {
+								$(".sub-breadcrumb__item").removeClass("active");
+								$(this).addClass("active");
+							}
+						});
+
+						$("html").on("click", function (e) {
+							if ($(e.target).hasClass("sub-breadcrumb__item") || $(e.target).parents().hasClass("sub-breadcrumb__item")) {
+							} else {
+								$(".sub-breadcrumb__item").removeClass("active");
+							}
+						});
+
 						$(".subMenu-depth ul li a").on("click", function () {
-							$(this).parent("li").siblings("li").removeClass("active");
 							$(this).parent("li").toggleClass("active");
+							$(this).parent("li").siblings("li").removeClass("active");
+							$(this).parent("li").find("li").removeClass("active");
 							return false;
 						});
 					});
@@ -1101,13 +1132,8 @@
 					}
 				</style>
 				<!-- 공공누리 -->
-				<div class="subPage" id="subPage">
-					<div class="printPage">
-						<div class="wrap-loading display-none">
-							<div>
-								<img src="/archive/resources/common/img/loading.gif" alt="이미지 준비중" title="이미지 준비중" />
-							</div>
-						</div>
+				<div class="subPage">
+					<div class="archive-list">
 						<div class="archive-list__title">
 							<strong>상주문화원 발간자료</strong>
 							<p>
@@ -1115,194 +1141,83 @@
 								공개하는 것을 말합니다.
 							</p>
 						</div>
-						<!-- //subKeywordSearchForm -->
-						<form id="recordForm" class="subKeywordSearchForm" action="index.do" method="get" onsubmit="return false">
-							<input type="hidden" name="category_id" value="" />
-							<input type="hidden" name="open_yyyy" value="" />
-							<input type="hidden" name="open_sno" value="" />
-							<input type="hidden" name="category_path" value="" />
-							<input type="hidden" name="menu_idx" value="103" />
-							<input type="hidden" id="sortField" name="sortField" value="" />
-							<input type="hidden" id="sortType" name="sortType" value="" />
-							<input type="hidden" id="viewType" name="viewType" value="" />
-							<select id="search_type" name="search_type" class="subKeyword_select" title="키워드 검색 그룹" onchange="showValue(this)">
-								<option value="all">전체</option>
-								<option value="record_title">제목</option>
-								<option value="keywd">키워드</option>
-							</select>
-							<div class="subKeyword_search">
-								<label for="search_text" class="blind">키워드 입력</label>
-								<input type="text" id="search_text" value="" name="search_text" class="subKeyword_search_key" placeholder="키워드 입력" />
-								<button type="submit" id="search_btn" class="subKeyword_search_button" title="검색하기">
-									<span class="blind">검색</span>
-								</button>
-								<input type="hidden" id="hid_befKeywd" value="" />
-							</div>
-						</form>
-						<!-- subKeywordSearchForm// -->
-
-						<!-- //maxBoardNaviBar -->
+						<div class="archive-list__searh">
+							<form action="">
+								<select id="search_type" name="search_type" class="archive-list__searh-select" title="키워드 검색 그룹" onchange="showValue(this)">
+									<option value="all">전체</option>
+									<option value="record_title">제목</option>
+									<option value="keywd">키워드</option>
+								</select>
+								<div class="archive-list__searh-form">
+									<input type="text" />
+									<button>검색</button>
+								</div>
+							</form>
+						</div>
 						<div class="archive-list__tab">
 							<a href="" class="active">콜렉션별</a>
 							<a href="">파일별</a>
 						</div>
 						<div class="archive-list__category">
-							<a href="" class="active">전체</a> <a href="">문서류(카드,도면)</a> <a href="">간행물류</a><a href="">이미지(사진)</a><a href="">동영상</a>
+							<a href="" class="active">전체</a> <a href="">문서류(카드,도면)</a> <a href="">간행물류</a> <a href="">이미지(사진)</a> <a href="">동영상</a>
 						</div>
-						<article class="maxBoardNaviBar">
-							<ul>
-								<li class="maxBoardNaviBar_total">총 1건</li>
-							</ul>
-							<ul>
-								<li class="maxBoardNaviBar_align">
-									<!-- 활성화가 되면 버튼 클레스 네임에 active 추가 -->
-									<button type="button" id="maxBoardNaviBar_alignBtn_text" class="maxBoardNaviBar_alignBtn_text">가나다 순</button>
-									<button type="button" id="maxBoardNaviBar_alignBtn_date" class="maxBoardNaviBar_alignBtn_date">최근등록 순</button>
-								</li>
-								<li class="maxBoardNaviBar_thumb">
-									<button class="maxBoardNaviBar_imageType active">
-										<span>썸네일형</span>
-									</button>
-									<button class="maxBoardNaviBar_listType">
-										<span>목록형</span>
-									</button>
-								</li>
-							</ul>
-						</article>
-						<!-- maxBoardNaviBar// -->
-
-						<!-- 		<hr class="hrBorder"> -->
-
-						<!-- //maxBoardGallery -->
-						<section class="maxBoardGallery" id="boardItem">
-							<!-- maxImgBoard : original or listType -->
-
-							<div class="maxBoard_item">
-								<a href="javascript:void(0);" onclick="javascript:viewUrl(event, '20220000000191','11','0000000055','','20220000013883');">
-									<span class="thumb">
-										<img
-											src="/archive/resources/homepage/archive/images/noimg_pdf.gif"
-											alt="상주 과거속으로의 여행('21 상주 역사기록 찾기 공모전 사진자료집)"
-										/>
-									</span>
-									<strong>상주 과거속으로의 여행('21 상주 역사기록 찾기 공모전 사진자료집)</strong>
-								</a>
+						<div class="archive-list__menu">
+							<div class="archive-list__menu-all">총 5건</div>
+							<div class="archive-list__menu-sort">
+								<a href="" class="active">가나다 순</a>
+								<a href="">최근등록 순</a>
+								<button class="archive-list__menu-sort-thumb active">썸네일형</button>
+								<button class="archive-list__menu-sort-list">목록형</button>
 							</div>
-
-							<div class="maxBoard_item">
-								<a href="javascript:void(0);" onclick="javascript:viewUrl(event, '20220000043472','11','0000000055','','20220000013927');">
-									<span class="thumb">
-										<img src="/archive/resources/homepage/archive/images/noimg_pdf.gif" alt="상주 과거속으로의 여행('22 상주 역사기록 찾기 공모전 자료집)" />
-									</span>
-									<strong>상주 과거속으로의 여행('22 상주 역사기록 찾기 공모전 자료집)</strong>
-								</a>
-							</div>
-						</section>
-						<!-- maxBoardGallery// -->
-
-						<!-- //maxPagination -->
-
-						<input id="viewPage" name="viewPage" type="hidden" value="" />
-						<div id="board_paging" class="maxPagination"></div>
-
-						<script type="text/javascript">
-							$(document).ready(function () {
-								$(document).on("click", "div#board_paging a", function (e) {
-									var searchText = $("#search_text").val();
-									if ($("#search_text").val() != $("#hid_befKeywd").val()) {
-										$("#search_text").val($("#hid_befKeywd").val());
-									}
-
-									e.stopPropagation();
-									e.preventDefault();
-									e.stopImmediatePropagation();
-									$("#viewPage").attr("value", $(this).attr("keyValue"));
-									var page = $(this).attr("keyValue");
-									var param = serializeCustom($("#recordForm"));
-
-									let load = "/archive/historicalRecords/index.do?" + param + "&viewPage=" + page + " #subPage";
-
-									var check1 = $(".maxBoardNaviBar_imageType")[0].className;
-									var check2 = $(".maxBoardNaviBar_listType")[0].className;
-
-									$("#list").load(load, function () {
-										$("#info_title").remove();
-										$(".subKeywordChart_items").slick({
-											infinite: false,
-											slidesToShow: 1,
-											slidesToScroll: 1,
-											pauseOnHover: true,
-											vertical: true,
-										});
-										if (check1.includes("active") == true) {
-											$(".maxBoardNaviBar_imageType").trigger("click");
-										}
-										if (check2.includes("active") == true) {
-											$(".maxBoardNaviBar_listType").trigger("click");
-										}
-
-										if ($("#search_text").val() != searchText) {
-											$("#search_text").val(searchText);
-										}
-									});
-
-									return false;
-								});
-
-								$(document).on("click", "#search_btn", function (e) {
-									//$('#search_btn').on('click', function (e) {
-									e.preventDefault();
-									$("#search_btn").off("click");
-									$("#viewPage").attr("value", "1");
-									var param = serializeCustom($("#recordForm"));
-
-									let load = "/archive/historicalRecords/index.do?" + param + " #subPage";
-
-									$(".wrap-loading").removeClass("display-none");
-
-									$("#list").load(load, function (responseTxt, statusTxt, xhr) {
-										if (statusTxt == "success") {
-											$("#info_title").remove();
-											$(".subKeywordChart_items").slick({
-												vertical: true,
-											});
-
-											$(".wrap-loading").addClass("display-none");
-										} else if (statusTxt == "error") {
-											alert("데이터 로딩에 실패 하였습니다.\n\n관리자에게 문의하세요.");
-											$(".wrap-loading").addClass("display-none");
-										}
-									});
-
-									/* $('#list').load(load, function() {
-						$('#info_title').remove();
-								$('.subKeywordChart_items').slick({
-									vertical : true
-								});
-					}); */
-								});
-
-								$("#search_text").on("keyup", function (e) {
-									e.preventDefault();
-									if (e.keyCode == 13) {
-										$("#viewPage").attr("value", "1");
-										var param = serializeCustom($("#recordForm"));
-										//doGetLoad('index.do', param);
-										let load = "/archive/historicalRecords/index.do?" + param + " #subPage";
-
-										$("#list").load(load, function () {
-											$("#info_title").remove();
-										});
-										return false;
-									}
-								});
-							});
-						</script>
-						<!-- maxPagination// -->
+						</div>
+						<div class="archive-list__thumb">
+							<a href="">
+								<img src="https://picsum.photos/500/1000" alt="" />
+								<p>학전망대에서 바라본 경천섬의 일몰</p>
+								<span>13</span>
+							</a>
+							<a href="">
+								<img src="https://picsum.photos/500/1000" alt="" />
+								<p>학전망대에서 바라본 경천섬의 일몰학전망대에서 바라본 경천섬의 일몰학전망대에서 바라본 경천섬의 일몰</p>
+								<span>13</span>
+							</a>
+							<a href="">
+								<img src="https://picsum.photos/500/1000" alt="" />
+								<p>학전망대에서 바라본 경천섬의 일몰</p>
+								<span>13</span>
+							</a>
+							<a href="">
+								<img src="https://picsum.photos/500/1000" alt="" />
+								<p>학전망대에서 바라본 경천섬의 일몰</p>
+								<span>13</span>
+							</a>
+							<a href="">
+								<img src="https://picsum.photos/500/1000" alt="" />
+								<p>학전망대에서 바라본 경천섬의 일몰</p>
+								<span>13</span>
+							</a>
+						</div>
 					</div>
-					<div id="menuRatingDiv"></div>
 				</div>
+				<script>
+					$(document).ready(function () {
+						$(".image-popup-vertical-fit").magnificPopup({
+							type: "image",
+							closeOnContentClick: true,
+							mainClass: "mfp-img-mobile",
+							image: {
+								verticalFit: true,
+							},
+						});
+						$(".multiple-items").slick({
+							infinite: true,
+							slidesToShow: 5,
+							slidesToScroll: 1,
+						});
+					});
+				</script>
 			</section>
+			<!-- //2023 추가 -->
 		</main>
 
 		<footer class="footer">

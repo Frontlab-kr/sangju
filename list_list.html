@@ -49,6 +49,19 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.0/swiper-bundle.min.js"
+			integrity="sha512-sR63/L3Slqn0OWMMafv7gmRGxkYJOcfgdN3jznwea9NYiett6R+cGdZ0t0TRHeH1gZogMyLE1oQpQ0Lc6ULKbg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.0/swiper-bundle.css"
+			integrity="sha512-6HEJkWR1zijwiB3XwQE9eHjDBJmA/Fcl88LlxMba1EC1kakrlXOA14rJmQujhDkTQ6/TSXmGo0w57GbnZ2FSdQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 	</head>
 
 	<body>
@@ -421,6 +434,7 @@
 					</ul>
 				</div>
 			</section>
+			<!-- 2023 추가 -->
 			<section class="sub-breadcrumb">
 				<div class="sub-breadcrumb__inner">
 					<div class="sub-breadcrumb__item">
@@ -451,7 +465,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="sub-breadcrumb__item active">
+					<div class="sub-breadcrumb__item on">
 						<strong>상주시 발간자료</strong>
 						<div class="sub-breadcrumb__menu">
 							<ul>
@@ -843,15 +857,32 @@
 						</li>
 					</ul>
 					<div class="subMenu-depth__banner">
-						<a href="">상주기록물 기증 신청하기</a>
-						<a href="">개인정보노출 및 불편 신고하기</a>
+						<a href="">상주기록물 기증 신청하기 <img src="./archive/resources/homepage/archive/images/2023/ico-file.png" alt="" /></a>
+						<a href="">개인정보노출 및 불편 신고하기 <img src="./archive/resources/homepage/archive/images/2023/ico-declaration2.png" alt="" /></a>
 					</div>
 				</div>
 				<script>
 					$(document).ready(function () {
+						$(".sub-breadcrumb__item").on("click", function () {
+							if ($(this).hasClass("active")) {
+								$(".sub-breadcrumb__item").removeClass("active");
+							} else {
+								$(".sub-breadcrumb__item").removeClass("active");
+								$(this).addClass("active");
+							}
+						});
+
+						$("html").on("click", function (e) {
+							if ($(e.target).hasClass("sub-breadcrumb__item") || $(e.target).parents().hasClass("sub-breadcrumb__item")) {
+							} else {
+								$(".sub-breadcrumb__item").removeClass("active");
+							}
+						});
+
 						$(".subMenu-depth ul li a").on("click", function () {
-							$(this).parent("li").siblings("li").removeClass("active");
 							$(this).parent("li").toggleClass("active");
+							$(this).parent("li").siblings("li").removeClass("active");
+							$(this).parent("li").find("li").removeClass("active");
 							return false;
 						});
 					});
@@ -1102,63 +1133,94 @@
 				</style>
 				<!-- 공공누리 -->
 				<div class="subPage">
-					<div class="archive-view">
-						<div class="archive-view__title">1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께</div>
-						<div class="archive-view__table">
-							<table>
-								<colgroup>
-									<col style="width: 20%" />
-									<col style="width: 80%" />
-								</colgroup>
-								<tbody>
-									<tr>
-										<th>명칭</th>
-										<td>1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께</td>
-									</tr>
-									<tr>
-										<th>세부명칭</th>
-										<td>42_2021-25_0004.jpg</td>
-									</tr>
-									<tr>
-										<th>아카이브 번호</th>
-										<td>2022-13918</td>
-									</tr>
-									<tr>
-										<th>시기</th>
-										<td>1982</td>
-									</tr>
-									<tr>
-										<th>유형</th>
-										<td>시청각류 (사진)</td>
-									</tr>
-									<tr>
-										<th>내용</th>
-										<td>1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께 (흑백사진 1매 컬러복원 1매)</td>
-									</tr>
-									<tr>
-										<th>키워드</th>
-										<td></td>
-									</tr>
-									<tr>
-										<th>공개구분</th>
-										<td></td>
-									</tr>
-									<tr>
-										<th>상세내용</th>
-										<td>
-											<p>1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께 (42_2021-25_0004.jpg) 은(는)</p>
-											<ul>
-												<li>- 공공누리 제4유형 조건에 따라 이용할 수 있습니다.</li>
-												<li>- 이용자는 이용조건을 준수해야 하며, 위반시 이용 허락이 종료됩니다.</li>
-											</ul>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+					<div class="archive-list">
+						<div class="archive-list__title">
+							<strong>상주문화원 발간자료</strong>
+							<p>
+								사전정보공개란 공공기관에서 어떤 일을 하고 있으며 예산을 어떻게 집행하고 있는지 국민들이 알 수 있도록 공공기관이 보유, 관리하는 정보를 국민에게
+								공개하는 것을 말합니다.
+							</p>
+						</div>
+						<div class="archive-list__searh">
+							<form action="">
+								<select id="search_type" name="search_type" class="archive-list__searh-select" title="키워드 검색 그룹" onchange="showValue(this)">
+									<option value="all">전체</option>
+									<option value="record_title">제목</option>
+									<option value="keywd">키워드</option>
+								</select>
+								<div class="archive-list__searh-form">
+									<input type="text" />
+									<button>검색</button>
+								</div>
+							</form>
+						</div>
+						<div class="archive-list__tab">
+							<a href="" class="active">콜렉션별</a>
+							<a href="">파일별</a>
+						</div>
+						<div class="archive-list__category">
+							<a href="" class="active">전체</a> <a href="">문서류(카드,도면)</a> <a href="">간행물류</a> <a href="">이미지(사진)</a> <a href="">동영상</a>
+						</div>
+						<div class="archive-list__menu">
+							<div class="archive-list__menu-all">총 5건</div>
+							<div class="archive-list__menu-sort">
+								<a href="" class="active">가나다 순</a>
+								<a href="">최근등록 순</a>
+								<button class="archive-list__menu-sort-thumb active">썸네일형</button>
+								<button class="archive-list__menu-sort-list">목록형</button>
+							</div>
+						</div>
+						<div class="archive-list__list">
+							<a href="">
+								<img src="./archive/resources/homepage/archive/images/2023/ico-pdf.png" alt="" />
+								<p>
+									제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학 세계제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학
+									세계제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학 세계
+								</p>
+							</a>
+							<a href="">
+								<img src="./archive/resources/homepage/archive/images/2023/ico-pdf.png" alt="" />
+								<p>
+									제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학 세계제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학
+									세계제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학 세계
+								</p>
+							</a>
+							<a href="">
+								<img src="./archive/resources/homepage/archive/images/2023/ico-pdf.png" alt="" />
+								<p>
+									제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학 세계제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학
+									세계제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학 세계
+								</p>
+							</a>
+							<a href="">
+								<img src="./archive/resources/homepage/archive/images/2023/ico-pdf.png" alt="" />
+								<p>
+									제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학 세계제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학
+									세계제14회 상주역사문화 학술대회 퇴재(退齋) 동계(桐溪) 형제의 삶과 문학 세계
+								</p>
+							</a>
 						</div>
 					</div>
 				</div>
+				<script>
+					$(document).ready(function () {
+						$(".image-popup-vertical-fit").magnificPopup({
+							type: "image",
+							closeOnContentClick: true,
+							mainClass: "mfp-img-mobile",
+							image: {
+								verticalFit: true,
+							},
+						});
+						$(".multiple-items").slick({
+							infinite: true,
+							slidesToShow: 5,
+							slidesToScroll: 1,
+						});
+					});
+				</script>
 			</section>
+			<!-- //2023 추가 -->
 		</main>
 
 		<footer class="footer">

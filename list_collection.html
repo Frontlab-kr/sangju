@@ -49,6 +49,19 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.0/swiper-bundle.min.js"
+			integrity="sha512-sR63/L3Slqn0OWMMafv7gmRGxkYJOcfgdN3jznwea9NYiett6R+cGdZ0t0TRHeH1gZogMyLE1oQpQ0Lc6ULKbg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.0/swiper-bundle.css"
+			integrity="sha512-6HEJkWR1zijwiB3XwQE9eHjDBJmA/Fcl88LlxMba1EC1kakrlXOA14rJmQujhDkTQ6/TSXmGo0w57GbnZ2FSdQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 	</head>
 
 	<body>
@@ -421,6 +434,7 @@
 					</ul>
 				</div>
 			</section>
+			<!-- 2023 추가 -->
 			<section class="sub-breadcrumb">
 				<div class="sub-breadcrumb__inner">
 					<div class="sub-breadcrumb__item">
@@ -451,7 +465,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="sub-breadcrumb__item active">
+					<div class="sub-breadcrumb__item on">
 						<strong>상주시 발간자료</strong>
 						<div class="sub-breadcrumb__menu">
 							<ul>
@@ -843,15 +857,32 @@
 						</li>
 					</ul>
 					<div class="subMenu-depth__banner">
-						<a href="">상주기록물 기증 신청하기</a>
-						<a href="">개인정보노출 및 불편 신고하기</a>
+						<a href="">상주기록물 기증 신청하기 <img src="./archive/resources/homepage/archive/images/2023/ico-file.png" alt="" /></a>
+						<a href="">개인정보노출 및 불편 신고하기 <img src="./archive/resources/homepage/archive/images/2023/ico-declaration2.png" alt="" /></a>
 					</div>
 				</div>
 				<script>
 					$(document).ready(function () {
+						$(".sub-breadcrumb__item").on("click", function () {
+							if ($(this).hasClass("active")) {
+								$(".sub-breadcrumb__item").removeClass("active");
+							} else {
+								$(".sub-breadcrumb__item").removeClass("active");
+								$(this).addClass("active");
+							}
+						});
+
+						$("html").on("click", function (e) {
+							if ($(e.target).hasClass("sub-breadcrumb__item") || $(e.target).parents().hasClass("sub-breadcrumb__item")) {
+							} else {
+								$(".sub-breadcrumb__item").removeClass("active");
+							}
+						});
+
 						$(".subMenu-depth ul li a").on("click", function () {
-							$(this).parent("li").siblings("li").removeClass("active");
 							$(this).parent("li").toggleClass("active");
+							$(this).parent("li").siblings("li").removeClass("active");
+							$(this).parent("li").find("li").removeClass("active");
 							return false;
 						});
 					});
@@ -1103,62 +1134,79 @@
 				<!-- 공공누리 -->
 				<div class="subPage">
 					<div class="archive-view">
-						<div class="archive-view__title">1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께</div>
-						<div class="archive-view__table">
-							<table>
-								<colgroup>
-									<col style="width: 20%" />
-									<col style="width: 80%" />
-								</colgroup>
-								<tbody>
-									<tr>
-										<th>명칭</th>
-										<td>1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께</td>
-									</tr>
-									<tr>
-										<th>세부명칭</th>
-										<td>42_2021-25_0004.jpg</td>
-									</tr>
-									<tr>
-										<th>아카이브 번호</th>
-										<td>2022-13918</td>
-									</tr>
-									<tr>
-										<th>시기</th>
-										<td>1982</td>
-									</tr>
-									<tr>
-										<th>유형</th>
-										<td>시청각류 (사진)</td>
-									</tr>
-									<tr>
-										<th>내용</th>
-										<td>1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께 (흑백사진 1매 컬러복원 1매)</td>
-									</tr>
-									<tr>
-										<th>키워드</th>
-										<td></td>
-									</tr>
-									<tr>
-										<th>공개구분</th>
-										<td></td>
-									</tr>
-									<tr>
-										<th>상세내용</th>
-										<td>
-											<p>1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께 (42_2021-25_0004.jpg) 은(는)</p>
-											<ul>
-												<li>- 공공누리 제4유형 조건에 따라 이용할 수 있습니다.</li>
-												<li>- 이용자는 이용조건을 준수해야 하며, 위반시 이용 허락이 종료됩니다.</li>
-											</ul>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+						<div class="archive-view__collection">
+							<div class="archive-view__collection-title">콜렉션 (기록물건) 제목이 들어가는 곳입니다.</div>
+							<div class="archive-view__collection-item">
+								<div class="swiper">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
+										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
+										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
+									</div>
+									<div class="swiper-button-next"></div>
+									<div class="swiper-button-prev"></div>
+								</div>
+								<div class="archive-view__collection-item-info">
+									<div class="archive-view__collection-item-pagination">
+										<div class="swiper-pagination"></div>
+									</div>
+									<div class="archive-view__collection-item-title">
+										학전망대에서 바라본 경천섬의 일몰 학전망대에서 바라본 경천섬의 일몰 학전망대에서 바라본 경천섬의 일몰
+									</div>
+									<div class="archive-view__collection-item-text">
+										2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일
+										학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스) 2021년 3월 2일 학전망대에서 바라본
+										경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의
+										일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)
+									</div>
+									<div class="archive-view__collection-item-view">12</div>
+								</div>
+							</div>
+							<div class="archive-view__collection-item">
+								<div class="swiper">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
+										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
+										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
+									</div>
+									<div class="swiper-button-next"></div>
+									<div class="swiper-button-prev"></div>
+								</div>
+								<div class="archive-view__collection-item-info">
+									<div class="archive-view__collection-item-pagination">
+										<div class="swiper-pagination"></div>
+									</div>
+									<div class="archive-view__collection-item-title">
+										학전망대에서 바라본 경천섬의 일몰 학전망대에서 바라본 경천섬의 일몰 학전망대에서 바라본 경천섬의 일몰
+									</div>
+									<div class="archive-view__collection-item-text">
+										2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일
+										학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스) 2021년 3월 2일 학전망대에서 바라본
+										경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의
+										일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)
+									</div>
+									<div class="archive-view__collection-item-view">12</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
+				<script>
+					$(document).ready(function () {
+						var swiper = new Swiper(".swiper", {
+							pagination: {
+								el: ".swiper-pagination",
+								type: "fraction",
+							},
+							navigation: {
+								nextEl: ".swiper-button-next",
+								prevEl: ".swiper-button-prev",
+							},
+						});
+					});
+				</script>
 			</section>
+			<!-- //2023 추가 -->
 		</main>
 
 		<footer class="footer">
