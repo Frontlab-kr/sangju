@@ -1462,7 +1462,7 @@
 					<div class="archive-view">
 						<div class="archive-view__collection">
 							<div class="archive-view__collection-title">콜렉션 (기록물건) 제목이 들어가는 곳입니다.</div>
-							<div class="archive-view__collection-item">
+							<div class="archive-view__collection-item swiper01">
 								<div class="swiper">
 									<div class="swiper-wrapper">
 										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
@@ -1488,7 +1488,33 @@
 									<div class="archive-view__collection-item-view">12</div>
 								</div>
 							</div>
-							<div class="archive-view__collection-item">
+							<div class="archive-view__collection-item swiper02">
+								<div class="swiper">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
+										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
+										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
+									</div>
+									<div class="swiper-button-next"></div>
+									<div class="swiper-button-prev"></div>
+								</div>
+								<div class="archive-view__collection-item-info">
+									<div class="archive-view__collection-item-pagination">
+										<div class="swiper-pagination"></div>
+									</div>
+									<div class="archive-view__collection-item-title">
+										학전망대에서 바라본 경천섬의 일몰 학전망대에서 바라본 경천섬의 일몰 학전망대에서 바라본 경천섬의 일몰
+									</div>
+									<div class="archive-view__collection-item-text">
+										2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일
+										학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스) 2021년 3월 2일 학전망대에서 바라본
+										경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의
+										일몰(타임랩스)2021년 3월 2일 학전망대에서 바라본 경천섬의 일몰(타임랩스)
+									</div>
+									<div class="archive-view__collection-item-view">12</div>
+								</div>
+							</div>
+							<div class="archive-view__collection-item swiper03">
 								<div class="swiper">
 									<div class="swiper-wrapper">
 										<div class="swiper-slide"><img src="https://picsum.photos/600/600" alt="" /></div>
@@ -1519,14 +1545,36 @@
 				</div>
 				<script>
 					$(document).ready(function () {
-						var swiper = new Swiper(".swiper", {
+						var swiper01 = new Swiper(".swiper01 .swiper", {
 							pagination: {
-								el: ".archive-view__collection-item .swiper-pagination",
+								el: ".swiper01 .swiper-pagination",
 								type: "fraction",
 							},
 							navigation: {
-								nextEl: ".archive-view__collection-item .swiper-button-next",
-								prevEl: ".archive-view__collection-item .swiper-button-prev",
+								nextEl: ".swiper01 .swiper-button-next",
+								prevEl: ".swiper01 .swiper-button-prev",
+							},
+						});
+
+						var swiper02 = new Swiper(".swiper02 .swiper", {
+							pagination: {
+								el: ".swiper02 .swiper-pagination",
+								type: "fraction",
+							},
+							navigation: {
+								nextEl: ".swiper02 .swiper-button-next",
+								prevEl: ".swiper02 .swiper-button-prev",
+							},
+						});
+
+						var swiper03 = new Swiper(".swiper03 .swiper", {
+							pagination: {
+								el: ".swiper03 .swiper-pagination",
+								type: "fraction",
+							},
+							navigation: {
+								nextEl: ".swiper03 .swiper-button-next",
+								prevEl: ".swiper03 .swiper-button-prev",
 							},
 						});
 					});
