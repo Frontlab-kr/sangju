@@ -112,6 +112,10 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 1024px) {
+		display: none;
+	}
 }
 .subBody {
 	&__title {
@@ -1043,6 +1047,15 @@
 				display: none;
 			}
 		}
+		@media screen and (max-width: 1400px) {
+			.swiper-slide {
+				img {
+					width: 100px;
+					height: 70px;
+					border-radius: 10px;
+				}
+			}
+		}
 	}
 	&__collection {
 		&-title {
@@ -1073,7 +1086,7 @@
 			.swiper {
 				min-width: 50%;
 				width: 50%;
-				height: 484px;
+				height: 25vw;
 				border-radius: 25px;
 				border: solid 1px #ddd;
 				background-color: #fff;
@@ -1144,6 +1157,22 @@
 					margin-right: 10px;
 					background: url(../images/2023/ico-newwindow.png) no-repeat 50% 50%;
 					background-size: cover;
+				}
+			}
+			@media screen and (max-width: 1600px) {
+				.swiper {
+					border-radius: 20px;
+				}
+				&-text {
+					-webkit-line-clamp: 3;
+				}
+			}
+			@media screen and (max-width: 1200px) {
+				.swiper {
+					border-radius: 15px;
+				}
+				&-text {
+					-webkit-line-clamp: 2;
 				}
 			}
 		}
@@ -1411,6 +1440,7 @@
 			img {
 				width: 100%;
 				height: 277px;
+				height: 14.5vw;
 				object-fit: cover;
 			}
 			p {
@@ -1445,6 +1475,33 @@
 				}
 			}
 		}
+		@media screen and (max-width: 1600px) {
+			gap: 40px;
+			a {
+				border-radius: 20px;
+				p {
+					margin: 14px 20px;
+					font-size: 20px;
+				}
+				span {
+					font-size: 12px;
+				}
+			}
+		}
+		@media screen and (max-width: 1200px) {
+			gap: 20px;
+			a {
+				border-radius: 15px;
+				p {
+					margin: 14px 15px;
+					font-size: 16px;
+				}
+				span {
+					margin: 0 20px 19px;
+					font-size: 12px;
+				}
+			}
+		}
 	}
 	&__list {
 		display: grid;
@@ -1474,6 +1531,25 @@
 				letter-spacing: -1.1px;
 				text-align: left;
 				color: #000;
+			}
+		}
+		@media screen and (max-width: 1600px) {
+			gap: 58px;
+			row-gap: 44px;
+			a {
+				border-radius: 20px;
+				p {
+					font-size: 20px;
+				}
+			}
+		}
+		@media screen and (max-width: 1200px) {
+			gap: 20px;
+			a {
+				border-radius: 15px;
+				p {
+					font-size: 16px;
+				}
 			}
 		}
 	}
