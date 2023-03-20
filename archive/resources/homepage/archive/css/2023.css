@@ -1128,6 +1128,7 @@
   height: 60px;
   z-index: 20;
   background: #000 url(../images/2023/ico-zoom.png) no-repeat 50% 50%;
+  background-size: 40px 40px;
 }
 
 .archive-view__image img {
@@ -1300,6 +1301,7 @@
   min-width: 50%;
   width: 50%;
   height: 25vw;
+  max-height: 478px;
   border-radius: 25px;
   border: solid 1px #ddd;
   background-color: #fff;
@@ -1406,15 +1408,17 @@
   .archive-view__title {
     margin-bottom: 10px;
     padding: 20px 20px;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: -0.5px;
   }
   .archive-view__image {
     margin-bottom: 10px;
   }
   .archive-view__image a:after {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
+    background: #000 url(../images/2023/ico-zoom.png) no-repeat 50% 50%;
+    background-size: 20px 20px;
   }
   .archive-view__table {
     margin-bottom: 0;
@@ -1422,14 +1426,14 @@
   .archive-view__table table tbody th,
   .archive-view__table table tbody td {
     padding: 5px 10px;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: -0.4px;
   }
   .archive-view__table table tbody td img {
     max-width: 100%;
   }
   .archive-view__table table tbody td p {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: -0.5px;
   }
   .archive-view__table table tbody td .btn {
@@ -1437,7 +1441,7 @@
     margin: 5px 8px 0 0;
     padding: 0 15px 0 20px;
     border-radius: 13px;
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: -0.45px;
   }
   .archive-view__table table tbody td .btn img {
@@ -1484,7 +1488,7 @@
   }
   .archive-view__collection-item .swiper {
     height: 117px;
-    height: 36vw;
+    height: 40vw;
     border-radius: 12.5px;
   }
   .archive-view__collection-item-info {
@@ -1492,10 +1496,10 @@
   }
   .archive-view__collection-item-pagination {
     margin: 0 0 10px 0;
-    padding: 10px 0 5px 0;
+    padding: 5px 0 5px 0;
   }
   .archive-view__collection-item-pagination .swiper-pagination {
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: -0.45px;
   }
   .archive-view__collection-item .swiper-button-next,
@@ -1515,7 +1519,7 @@
     letter-spacing: -0.5px;
   }
   .archive-view__collection-item-text {
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: -0.45px;
     -webkit-line-clamp: 6;
   }
@@ -1523,7 +1527,7 @@
     left: 5px;
     bottom: 5px;
     margin-top: 10px;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: -0.35px;
     color: #000;
   }
@@ -1997,7 +2001,6 @@
 }
 
 .archive-list__list a {
-  height: 177px;
   padding: 27px 20px 32px 23px;
   border-radius: 25px;
   border: solid 1px #ddd;
@@ -2049,14 +2052,14 @@
 @media screen and (max-width: 1024px) {
   .archive-list__title {
     display: block;
-    padding: 16px 20px;
+    padding: 16px 10px;
   }
   .archive-list__title strong {
-    font-size: 12px;
+    font-size: 13px;
   }
   .archive-list__title p {
     margin-top: 5px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .archive-list__title p::before {
     width: 1px;
@@ -2072,7 +2075,7 @@
     width: 100%;
     padding: 6px 0;
     border-radius: 8px 8px 0 0;
-    font-size: 12px;
+    font-size: 13px;
   }
   .archive-list__searh {
     display: block;
@@ -2108,38 +2111,41 @@
     margin: 0 12px;
   }
   .archive-list__category {
-    height: 34px;
+    height: 40px;
     padding: 0 12px;
   }
   .archive-list__category a {
     margin-right: 20px;
-    font-size: 11px;
+    font-size: 12px;
+  }
+  .archive-list__category a:last-child {
+    margin-right: 0;
   }
   .archive-list__menu {
     padding: 8px 0;
   }
   .archive-list__menu-all {
-    font-size: 11px;
+    font-size: 12px;
   }
   .archive-list__menu-all::before {
     width: 3px;
     height: 3px;
-    margin: 0 6px 0 10px;
+    margin: 0 3px 0 0;
   }
   .archive-list__menu-sort a {
-    font-size: 11px;
+    font-size: 12px;
   }
   .archive-list__menu-sort a:before {
     width: 1px;
     height: 5px;
-    margin: 0 10px;
+    margin: 0 6px;
   }
   .archive-list__menu-sort button {
-    width: 60px;
-    height: 20px;
+    width: 70px;
+    height: 26px;
     margin-left: 5px;
     border-radius: 20px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .archive-list__menu-sort button.archive-list__menu-sort-thumb {
     margin-left: 15px;
@@ -2169,7 +2175,7 @@
   }
   .archive-list__thumb a span {
     margin: 0 10px 6px;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: -0.35px;
     color: #000;
   }
@@ -2190,9 +2196,12 @@
     padding: 15px 10px;
     border-radius: 12.5px;
   }
+  .archive-list__list a img {
+    width: 12px;
+  }
   .archive-list__list a p {
-    margin-top: 6px;
-    font-size: 11px;
+    margin-top: 4px;
+    font-size: 12px;
     line-height: 1.6;
     letter-spacing: -0.5px;
   }
