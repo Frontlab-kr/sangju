@@ -695,7 +695,7 @@
 					right: 0;
 					left: 0;
 					width: auto;
-					font-size: 10px;
+					font-size: 12px;
 				}
 			}
 			&__keyword {
@@ -735,7 +735,7 @@
 					height: 27px;
 					margin: 5px auto 0;
 					padding: 0 12.5px;
-					font-size: 9px;
+					font-size: 12px;
 					letter-spacing: -0.45px;
 					img {
 						position: absolute;
@@ -833,8 +833,9 @@
 				grid-template-columns: 1fr 1fr 1fr;
 				gap: 23px;
 				a {
-					width: 96px;
+					width: auto;
 					p {
+						width: 96px;
 						height: 96px;
 						border-radius: 25px;
 						img {
@@ -843,7 +844,7 @@
 					}
 					span {
 						margin-top: 11px;
-						font-size: 11px;
+						font-size: 12px;
 						letter-spacing: -0.5px;
 					}
 				}
@@ -982,7 +983,7 @@
 					}
 					span {
 						margin: 0 10px 10px;
-						font-size: 10px;
+						font-size: 11px;
 						letter-spacing: -0.35px;
 						&::before {
 							content: "";
@@ -1861,7 +1862,7 @@
 				height: 36px;
 				border-radius: 8px;
 				input {
-					font-size: 10px;
+					font-size: 11px;
 					border-radius: 8px;
 				}
 				button {
