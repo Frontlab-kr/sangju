@@ -2081,7 +2081,7 @@
   }
 }
 
-.archive-list__list {
+.archive-list__file {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -2091,14 +2091,14 @@
   row-gap: 44px;
 }
 
-.archive-list__list a {
+.archive-list__file a {
   padding: 27px 20px 32px 23px;
   border-radius: 25px;
   border: solid 1px #ddd;
   background-color: #fff;
 }
 
-.archive-list__list a p {
+.archive-list__file a p {
   margin-top: 12px;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -2116,27 +2116,131 @@
 }
 
 @media screen and (max-width: 1600px) {
-  .archive-list__list {
+  .archive-list__file {
     gap: 58px;
     row-gap: 44px;
   }
-  .archive-list__list a {
+  .archive-list__file a {
     border-radius: 20px;
   }
-  .archive-list__list a p {
+  .archive-list__file a p {
     font-size: 20px;
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .archive-list__list {
+  .archive-list__file {
     gap: 20px;
   }
+  .archive-list__file a {
+    border-radius: 15px;
+  }
+  .archive-list__file a p {
+    font-size: 16px;
+  }
+}
+
+.archive-list__list {
+  margin: 30px 0 0 0;
+}
+
+.archive-list__list a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 0 0 30px 0;
+  border-radius: 25px;
+  background-color: #fff;
+  overflow: hidden;
+  border: solid 1px #ddd;
+}
+
+.archive-list__list a > div {
+  width: calc(100% - 15vw);
+}
+
+.archive-list__list a img {
+  min-width: 290px;
+  width: 290px;
+  min-width: 15vw;
+  width: 15vw;
+  height: 206px;
+  height: 11vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 25px;
+}
+
+.archive-list__list a p {
+  width: 90%;
+  margin: 30px 30px 10px 30px;
+  font-size: 22px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -1.1px;
+  text-align: left;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.archive-list__list a span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 30px 24px;
+  font-size: 14px;
+  letter-spacing: -0.7px;
+  color: #000;
+}
+
+.archive-list__list a span::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 16px;
+  margin-right: 10px;
+  background: url(../images/2023/ico-newwindow.png) no-repeat 50% 50%;
+  background-size: cover;
+}
+
+@media screen and (max-width: 1600px) {
+  .archive-list__list a {
+    border-radius: 20px;
+  }
+  .archive-list__list a img {
+    border-radius: 20px;
+  }
+  .archive-list__list a p {
+    margin: 14px 20px;
+    font-size: 20px;
+  }
+  .archive-list__list a span {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
   .archive-list__list a {
     border-radius: 15px;
   }
+  .archive-list__list a img {
+    border-radius: 15px;
+  }
   .archive-list__list a p {
+    margin: 14px 15px;
     font-size: 16px;
+  }
+  .archive-list__list a span {
+    margin: 0 20px 19px;
+    font-size: 12px;
   }
 }
 
@@ -2275,26 +2379,59 @@
     height: 8px;
     margin-right: 5px;
   }
-  .archive-list__list {
+  .archive-list__file {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin: 15px 0 0 0;
     row-gap: 10px;
   }
-  .archive-list__list a {
+  .archive-list__file a {
     height: auto;
     padding: 15px 10px;
     border-radius: 12.5px;
   }
-  .archive-list__list a img {
+  .archive-list__file a img {
     width: 12px;
   }
-  .archive-list__list a p {
+  .archive-list__file a p {
     margin-top: 4px;
     font-size: 12px;
     line-height: 1.6;
     letter-spacing: -0.5px;
+  }
+  .archive-list__list {
+    margin: 15px 0 0 0;
+  }
+  .archive-list__list a {
+    border-radius: 12.5px;
+    margin: 0 0 15px 0;
+  }
+  .archive-list__list a img {
+    min-width: 20vw;
+    width: 20vw;
+    height: 16vw;
+    border-radius: 12.5px;
+  }
+  .archive-list__list a > div {
+    width: calc(100% - 21vw);
+  }
+  .archive-list__list a p {
+    width: 90%;
+    margin: 8px 10px;
+    font-size: 12px;
+    letter-spacing: -0.5px;
+  }
+  .archive-list__list a span {
+    margin: 0 10px 6px;
+    font-size: 12px;
+    letter-spacing: -0.35px;
+    color: #000;
+  }
+  .archive-list__list a span::before {
+    width: 12px;
+    height: 8px;
+    margin-right: 5px;
   }
 }
 
