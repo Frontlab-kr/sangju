@@ -1277,6 +1277,23 @@
 			}
 		}
 	}
+	&__button {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		margin-top: 46px;
+		a {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 228px;
+			height: 55px;
+			border: 1px solid #000;
+			border-radius: 55px;
+			font-size: 16px;
+			font-weight: 700;
+		}
+	}
 	@media screen and (max-width: 1024px) {
 		&__title {
 			margin-bottom: 10px;
@@ -1430,6 +1447,14 @@
 						-webkit-line-clamp: 2;
 					}
 				}
+			}
+		}
+		&__button {
+			margin-top: 23px;
+			a {
+				width: 114px;
+				height: 27.5px;
+				font-size: 11px;
 			}
 		}
 	}
@@ -1625,10 +1650,28 @@
 				}
 				&.active {
 					color: #000;
+					&:after {
+						border-color: #000;
+					}
 				}
 				&:first-child {
 					&::before {
 						display: none;
+					}
+				}
+				&::after {
+					content: "";
+					display: block;
+					width: 24px;
+					height: 24px;
+					margin-left: 10px;
+					background: url(../images/2023/sort.png) no-repeat 50% 50%;
+					border: solid 1px #bdbdbd;
+					border-radius: 4px;
+				}
+				&.up {
+					&::after {
+						transform: rotate(180deg);
 					}
 				}
 			}
@@ -1989,6 +2032,13 @@
 						width: 1px;
 						height: 5px;
 						margin: 0 6px;
+					}
+					&::after {
+						width: 16px;
+						height: 16px;
+						margin-left: 5px;
+						background: url(../images/2023/sort.png) no-repeat 50% 50%;
+						border-radius: 3px;
 					}
 				}
 				button {
