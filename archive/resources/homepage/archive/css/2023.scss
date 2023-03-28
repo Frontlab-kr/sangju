@@ -1182,7 +1182,7 @@
 			font-style: normal;
 			line-height: 1.62;
 			letter-spacing: -1.3px;
-			text-align: center;
+			text-align: left;
 			color: #555;
 		}
 		&-img {
@@ -1193,6 +1193,7 @@
 			border: solid 1px #ddd;
 			background-color: #fff;
 			img {
+				width: 80%;
 				max-width: 90%;
 				border-radius: 25px;
 			}
@@ -1424,7 +1425,6 @@
 				padding: 5px;
 				border-radius: 10px;
 				img {
-					max-width: 80%;
 					border-radius: 10px;
 				}
 				strong {
