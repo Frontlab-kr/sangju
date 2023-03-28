@@ -1396,8 +1396,7 @@
 }
 
 .archive-view__collection-img img {
-  width: 80%;
-  max-width: 90%;
+  max-width: 80%;
   border-radius: 25px;
 }
 
