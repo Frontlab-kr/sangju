@@ -448,6 +448,11 @@
 								<li><a href="">기록마당5</a></li>
 								<li><a href="">기록마당6</a></li>
 								<li><a href="">기록마당7</a></li>
+								<li><a href="">기록마당8</a></li>
+								<li><a href="">기록마당9</a></li>
+								<li><a href="">기록마당10</a></li>
+								<li><a href="">기록마당11</a></li>
+								<li><a href="">기록마당12</a></li>
 							</ul>
 						</div>
 					</div>
@@ -459,7 +464,7 @@
 								<li><a href="">기록마당2</a></li>
 								<li><a href="">기록마당3</a></li>
 								<li><a href="">기록마당4</a></li>
-								<li><a href="">기록마당5</a></li>
+								<li class="newwindow"><a href="">기록마당5 기록마당5 기록마당5 기록마당5 기록마당5 기록마당5 기록마당5</a></li>
 								<li><a href="">기록마당6</a></li>
 								<li><a href="">기록마당7</a></li>
 							</ul>
@@ -471,11 +476,6 @@
 							<ul>
 								<li><a href="">기록마당1</a></li>
 								<li><a href="">기록마당2</a></li>
-								<li><a href="">기록마당3</a></li>
-								<li><a href="">기록마당4</a></li>
-								<li><a href="">기록마당5</a></li>
-								<li><a href="">기록마당6</a></li>
-								<li><a href="">기록마당7</a></li>
 							</ul>
 						</div>
 					</div>
@@ -564,23 +564,6 @@
 										</li>
 										<li>
 											<a href=""><span>5depth menu 예시4</span></a>
-											<ul>
-												<li>
-													<a href=""><span>: 6depth menu 예시1</span></a>
-												</li>
-												<li>
-													<a href=""><span>: 6depth menu 예시2</span></a>
-												</li>
-												<li>
-													<a href=""><span>: 6depth menu 예시3</span></a>
-												</li>
-												<li>
-													<a href=""><span>: 6depth menu 예시4</span></a>
-												</li>
-												<li>
-													<a href=""><span>: 6depth menu 예시5</span></a>
-												</li>
-											</ul>
 										</li>
 									</ul>
 								</li>
@@ -1199,10 +1182,11 @@
 					</div>
 				</div>
 				<script>
+					//20230330
 					$(document).ready(function () {
 						$(".sub-breadcrumb__item").on("click", function () {
 							if ($(this).hasClass("active")) {
-								$(".sub-breadcrumb__item").removeClass("active");
+								//$(".sub-breadcrumb__item").removeClass("active");
 							} else {
 								$(".sub-breadcrumb__item").removeClass("active");
 								$(this).addClass("active");
@@ -1217,9 +1201,11 @@
 						});
 
 						$(".subMenu-depth ul li a").on("click", function () {
-							$(this).parent("li").toggleClass("active");
-							$(this).parent("li").siblings("li").removeClass("active");
-							$(this).parent("li").find("li").removeClass("active");
+							if ($(this).parent("li").find("ul").length > 0) {
+								$(this).parent("li").toggleClass("active");
+								$(this).parent("li").siblings("li").removeClass("active");
+								$(this).parent("li").find("li").removeClass("active");
+							}
 							return false;
 						});
 					});
@@ -1473,9 +1459,13 @@
 					<div class="archive-view">
 						<div class="archive-view__title">1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께</div>
 						<div class="archive-view__image">
+							<!-- 20230330 -->
 							<a class="image-popup-vertical-fit" href="https://picsum.photos/2000/1000">
-								<img src="https://picsum.photos/2000/1000" alt="" />
+								<p>
+									<img src="https://picsum.photos/400/1000" alt="" />
+								</p>
 							</a>
+							<!-- //20230330 -->
 						</div>
 						<div class="mo">
 							<div class="archive-view__slide">
@@ -1576,7 +1566,7 @@
 									<tr>
 										<th>상세내용</th>
 										<td>
-											<p><strong>1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께 (42_2021-25_0004.jpg) 은(는)</strong></p>
+											<p><strong style="font-weight: 700">1971년 공성면 봉산리 예씨문중 제실에서 형님과 함께 (42_2021-25_0004.jpg) 은(는)</strong></p>
 											<ul>
 												<li>- 공공누리 제4유형 조건에 따라 이용할 수 있습니다.</li>
 												<li>- 이용자는 이용조건을 준수해야 하며, 위반시 이용 허락이 종료됩니다.</li>
