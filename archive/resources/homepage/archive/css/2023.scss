@@ -13,7 +13,7 @@
 	}
 }
 .sub-breadcrumb {
-	height: 98px;
+	height: 65px;
 	border-bottom: 1px solid #ddd;
 	&__inner {
 		position: relative;
@@ -21,7 +21,7 @@
 		align-items: center;
 		width: 100%;
 		max-width: 1560px;
-		height: 98px;
+		height: 65px;
 		margin: 0 auto;
 	}
 	&__item {
@@ -97,7 +97,7 @@
 		left: -1px;
 		right: -1px;
 		width: auto;
-		max-height: 406px;
+		max-height: 425px;
 		background: #fff;
 		border: 1px solid #ddd;
 		border-top: none;
@@ -256,7 +256,7 @@
 
 	float: left;
 	width: 16%;
-	padding-left: 1em;
+	// padding-left: 1em;
 	margin-bottom: 4em;
 
 	@media screen and (max-width: 1024px) {
@@ -662,6 +662,9 @@
 				text-align: left;
 				color: #000;
 				white-space: nowrap;
+				br {
+					display: none;
+				}
 				img {
 					margin-left: 15px;
 				}
@@ -669,8 +672,15 @@
 		}
 		&__cloud {
 			width: 100%;
+			height: 20vw;
 			opacity: 0;
 			transition: all 0.6s ease;
+			.mainWordCloud_shape {
+				height: 100%;
+			}
+			.mainWordCloud_shape__inner {
+				height: 100%;
+			}
 			&.active {
 				opacity: 1;
 				.jqcloud-word {
@@ -765,7 +775,6 @@
 				}
 			}
 			&__btn {
-				display: block;
 				position: absolute;
 				left: 0;
 				bottom: 20px;
@@ -773,23 +782,39 @@
 				padding: 0 20px;
 				a {
 					position: relative;
-					justify-content: center;
-					max-width: 300px;
-					height: 27px;
+
+					width: 100%;
+					//height: 27px;
 					margin: 5px auto 0;
 					padding: 0 12.5px;
 					font-size: 12px;
+					line-height: 1.5;
 					letter-spacing: -0.45px;
+					font-weight: 400;
+					br {
+						display: block;
+					}
+					strong {
+						font-weight: 700;
+						font-size: 14px;
+					}
 					img {
 						position: absolute;
 						right: 10px;
 						margin-left: 0px;
-						transform: scale(0.5);
+						transform: scale(0.7);
+					}
+					&:first-child {
+						margin-right: 5px;
+					}
+					&:last-child {
+						margin-left: 5px;
 					}
 				}
 			}
 			&__cloud {
 				width: 100%;
+				height: 40vw;
 				margin: 0 auto;
 				.jqcloud {
 					font-size: 5px;
@@ -1153,6 +1178,7 @@
 	&__slide {
 		position: relative;
 		width: 100%;
+		margin-bottom: 25px;
 		padding: 18px 72px;
 		overflow: hidden;
 		background-color: #f9f9f9;
@@ -1461,7 +1487,7 @@
 			}
 		}
 		&__slide {
-			margin-bottom: 10px;
+			margin-bottom: 15px;
 			padding: 6px 40px;
 			.swiper-slide {
 				img {
@@ -2005,16 +2031,16 @@
 			img {
 				min-width: 290px;
 				width: 290px;
-				min-width: 9.4vw;
-				width: 9.4vw;
+				min-width: 6.4vw;
+				width: 6.4vw;
 				height: 206px;
-				height: 6.7vw;
+				height: 4.7vw;
 				object-fit: cover;
 				border-radius: 25px;
 			}
 			p {
 				width: 90%;
-				margin: 30px 30px 10px 30px;
+				margin: 18px 30px 10px 20px;
 				font-size: 22px;
 				font-weight: normal;
 				font-stretch: normal;
@@ -2291,7 +2317,7 @@
 		}
 	}
 	img {
-		max-width: 100%;
+		//max-width: 100%;
 	}
 	@media screen and (max-width: 1024px) {
 		&__title {
@@ -2306,4 +2332,14 @@
 			}
 		}
 	}
+}
+.subTop_title {
+	display: block;
+	width: 100%;
+	line-height: 1.4;
+	padding: 1.75em 0 1.75em 1em;
+	margin: 0 auto;
+	font-size: 2em;
+	font-weight: 300;
+	word-break: keep-all;
 }
