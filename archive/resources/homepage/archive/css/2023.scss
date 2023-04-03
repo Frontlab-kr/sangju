@@ -706,7 +706,7 @@
 		@media screen and (max-width: 1024px) {
 			display: block;
 			margin: 12px 12px 0;
-			padding: 36px 20px 80px;
+			padding: 14vw 20px 80px;
 			&__swiper {
 				width: 300px;
 				height: 40px;
@@ -814,7 +814,6 @@
 			}
 			&__cloud {
 				width: 100%;
-				height: 40vw;
 				margin: 0 auto;
 				.jqcloud {
 					font-size: 5px;
@@ -822,6 +821,11 @@
 				.jqcloud-word {
 					padding: 5px 10px;
 				}
+			}
+		}
+		@media screen and (max-width: 768px) {
+			&__cloud {
+				height: 40vw;
 			}
 		}
 	}

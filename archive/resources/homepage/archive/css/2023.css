@@ -827,7 +827,7 @@
   .archive-main-head {
     display: block;
     margin: 12px 12px 0;
-    padding: 36px 20px 80px;
+    padding: 14vw 20px 80px;
   }
   .archive-main-head__swiper {
     width: 300px;
@@ -931,7 +931,6 @@
   }
   .archive-main-head__cloud {
     width: 100%;
-    height: 40vw;
     margin: 0 auto;
   }
   .archive-main-head__cloud .jqcloud {
@@ -939,6 +938,12 @@
   }
   .archive-main-head__cloud .jqcloud-word {
     padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .archive-main-head__cloud {
+    height: 40vw;
   }
 }
 
