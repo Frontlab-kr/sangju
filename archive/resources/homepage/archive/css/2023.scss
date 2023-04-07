@@ -215,11 +215,19 @@
 				border-radius: 4.5px;
 			}
 			ul {
-				padding: 10px 20px;
+				padding: 10px;
 				li {
 					a {
+						padding: 0 5px;
 						font-size: 11px;
 						letter-spacing: -0.55px;
+					}
+					&.newwindow {
+						a {
+							&::before {
+								right: 0px;
+							}
+						}
 					}
 				}
 			}
@@ -471,7 +479,7 @@
 	}
 	.active {
 		> ul {
-			max-height: 1000px;
+			max-height: 5000px;
 			//transition: all 4s ease;
 		}
 	}
@@ -500,6 +508,9 @@
 	}
 	@media screen and (max-width: 640px) {
 		padding: 10px 0 0;
+	}
+	> img {
+		max-width: 100%;
 	}
 	&-head {
 		position: relative;
